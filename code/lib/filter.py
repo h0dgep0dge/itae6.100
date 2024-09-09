@@ -8,6 +8,7 @@ class Filter:
     def feed(self,val):
         self.vals[self.index] = val
         self.index = (self.index+1)%len(self.vals)
+        return self.avg()
     
     def avg(self):
         s = 0
