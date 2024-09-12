@@ -19,6 +19,9 @@
   modified  24 July 2020
   by Tom Igoe
 
+  modified 12 Sep 2024
+  by h0dgep0dge (changed to log binary data coming in over uart)
+
   This example code is in the public domain.
 
 */
