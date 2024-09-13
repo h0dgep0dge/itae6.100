@@ -6,7 +6,7 @@ from RGBLED import *
 
 import iomapping
 
-class conveyor():
+class conveyorInterface():
     # Pin mapping
 
     # Outputs
@@ -22,7 +22,7 @@ class conveyor():
     outgoingBarrier = iomapping.IX5
     rotaryEncoder = iomapping.IX4
 
-    colour = iomapping.IW0
+    colourSensor = iomapping.IW0
 
     def __init__(self):
         self.initMCP()
@@ -56,5 +56,3 @@ class conveyor():
     @colourLED.setter
     def colourLED(self,value):
         self._colourLED.value = value
-        
-            
