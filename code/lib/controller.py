@@ -50,11 +50,13 @@ class conveyorController:
     def refreshRunUntil(self):
         self.runUntil = time.monotonic() + self.runTime # I assume time.monotonic returns a number of seconds? docs don't say
 
-    def run(self):
+    def start(self):
+        self.running = True
         self.motor.value = True
         self.pump.value = True
     
     def stop(self):
+        self.running = False
         self.motor.value = False
         self.pump.value = False
 
@@ -102,6 +104,10 @@ class conveyorController:
             self.arm()
 
         if not self.armed:
+            return
+
+        if self.interface.disarmButton:
+            self.disarm()
             return
 
         self.feedSensor()
