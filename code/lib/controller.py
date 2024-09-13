@@ -2,6 +2,11 @@ from conveyor import conveyorInterface
 from colourSensor import colourSensor
 from RGBLED import COLOURS
 
+class kickMe:
+    def __init__(self,colour):
+        self.ticks = 0
+        self.colour = colour
+
 class conveyorController:
     runTime = 20 # The amount of time to keep running after the last sensor input
 
@@ -13,6 +18,8 @@ class conveyorController:
         self.running = False
         self.encoderLatched = False
         self.OBarrierLatched = False
+        self.colourQueue = []
+        self.kickQueue = []
 
         # Initialize sensor object
         self.sensor = colourSensor()
@@ -41,7 +48,7 @@ class conveyorController:
         self.interface.status = COLOURS.RED
 
     def refreshRunUntil(self):
-        self.runUntil = time.monotonic() + self.runTime # I assume time.monotonic returns a number of seconds? docs doesn't say
+        self.runUntil = time.monotonic() + self.runTime # I assume time.monotonic returns a number of seconds? docs don't say
 
     def run(self):
         self.motor.value = True
@@ -55,12 +62,38 @@ class conveyorController:
         c = self.sensor.feed(self.interface.colourSensor.value)
         if c:
             print("Recieved colour",c)
+            self.colourQueue.append(c)
 
     def tick(self):
         print("Recieved encoder tick")
+        for i in range(0,len(self.pushQueue)):
+            push = self.pushQueue[i]
+            push.ticks += 1
+            if push.colour == COLOURS.WHITE:
+                if push.ticks > 10+3:
+                    self.interface.whitePusher = False
+                    self.pushQueue.pop(i)
+                elif push.ticks >= 10:
+                    self.interface.whitePusher = True
+            elif push.colour == COLOURS.RED:
+                if push.ticks > 20+3:
+                    self.interface.redPusher = False
+                    self.pushQueue.pop(i)
+                elif push.ticks >= 20:
+                    self.interface.redPusher = True
+            elif push.colour == COLOURS.BLUE:
+                if push.ticks > 30+3:
+                    self.interface.bluePusher = False
+                    self.pushQueue.pop(i)
+                elif push.ticks >= 30:
+                    self.interface.bluePusher = True
 
     def outgoing(self):
-        print("Something at outgoing barrier")
+        if len(self.colourQueue) > 0:
+            print(self.colourQueue[0],"at outgoing barrier")
+            self.kickQueue.append(kickMe(colourQueuepop(0)))
+        else
+            print("Something at outgoing barrier, don't know what colour! fuck!")
 
     def update(self):
         self.interface.update()
@@ -97,12 +130,3 @@ class conveyorController:
                 self.OBarrierLatched = True
         else
             self.OBarrierLatched = False
-        
-
-        
-
-        
-        
-
-
-        
