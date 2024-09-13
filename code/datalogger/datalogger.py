@@ -31,8 +31,6 @@ for i in range(0,16):
 led.value = True
 
 while True:
-    pass
-while True:
     a = pot.value
     uart.write(bytearray([a>>8,a&255]))
     time.sleep(1/50)
