@@ -19,7 +19,7 @@ class conveyorController:
         self.encoderLatched = False
         self.OBarrierLatched = False
         self.colourQueue = []
-        self.kickQueue = []
+        self.pushQueue = []
 
         # Initialize sensor object
         self.sensor = colourSensor()
