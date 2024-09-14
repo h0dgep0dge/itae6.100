@@ -2,7 +2,7 @@ from conveyor import conveyorInterface
 from colourSensor import colourSensor
 from RGBLED import COLOURS
 
-class kickMe:
+class pushMe:
     def __init__(self,colour):
         self.ticks = 0
         self.colour = colour
