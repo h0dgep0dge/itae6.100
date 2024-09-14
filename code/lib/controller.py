@@ -10,6 +10,11 @@ class kickMe:
 class conveyorController:
     runTime = 20 # The amount of time to keep running after the last sensor input
 
+    whitePushTicks = 10
+    redPushTicks = 20
+    bluePushTicks = 30
+    pusherDwell = 3
+
     def __init__(self):
         self.interface = conveyorInterface()
 
@@ -72,39 +77,40 @@ class conveyorController:
             push = self.pushQueue[i]
             push.ticks += 1
             if push.colour == COLOURS.WHITE:
-                if push.ticks > 10+3:
+                if push.ticks > self.whitePushTicks+self.pusherDwell:
                     self.interface.whitePusher = False
                     self.pushQueue.pop(i)
-                elif push.ticks >= 10:
+                elif push.ticks >= self.whitePushTicks:
                     self.interface.whitePusher = True
             elif push.colour == COLOURS.RED:
-                if push.ticks > 20+3:
+                if push.ticks > self.redPushTicks+self.pusherDwell:
                     self.interface.redPusher = False
                     self.pushQueue.pop(i)
-                elif push.ticks >= 20:
+                elif push.ticks >= self.redPushTicks:
                     self.interface.redPusher = True
             elif push.colour == COLOURS.BLUE:
-                if push.ticks > 30+3:
+                if push.ticks > self.bluePushTicks+self.pusherDwell:
                     self.interface.bluePusher = False
                     self.pushQueue.pop(i)
-                elif push.ticks >= 30:
+                elif push.ticks >= self.bluePushTicks:
                     self.interface.bluePusher = True
 
     def outgoing(self):
+        self.refreshRunUntil()
         if len(self.colourQueue) > 0:
             print(self.colourQueue[0],"at outgoing barrier")
-            self.kickQueue.append(kickMe(colourQueuepop(0)))
+            self.pushQueue.append(pushMe(colourQueue.pop(0)))
         else
             print("Something at outgoing barrier, don't know what colour! fuck!")
 
     def update(self):
         self.interface.update()
 
-        if self.interface.armButton:
-            self.arm()
-
         if not self.armed:
-            return
+            if self.interface.armButton:
+                self.arm()
+            else
+                return
 
         if self.interface.disarmButton:
             self.disarm()
