@@ -5,6 +5,7 @@ from RGBLED import COLOURS
 class pushMe:
     def __init__(self,colour):
         self.ticks = 0
+        self.pushed = False
         self.colour = colour
 
 class conveyorController:
@@ -73,27 +74,32 @@ class conveyorController:
 
     def tick(self):
         print("Recieved encoder tick")
-        for i in range(0,len(self.pushQueue)):
+        i = 0
+        while i < len(self.pushQueue):
             push = self.pushQueue[i]
             push.ticks += 1
             if push.colour == COLOURS.WHITE:
                 if push.ticks > self.whitePushTicks+self.pusherDwell:
                     self.interface.whitePusher = False
-                    self.pushQueue.pop(i)
+                    self.pushQueue[i].pushed = True
                 elif push.ticks >= self.whitePushTicks:
                     self.interface.whitePusher = True
             elif push.colour == COLOURS.RED:
                 if push.ticks > self.redPushTicks+self.pusherDwell:
                     self.interface.redPusher = False
-                    self.pushQueue.pop(i)
+                    self.pushQueue[i].pushed = True
                 elif push.ticks >= self.redPushTicks:
                     self.interface.redPusher = True
             elif push.colour == COLOURS.BLUE:
                 if push.ticks > self.bluePushTicks+self.pusherDwell:
                     self.interface.bluePusher = False
-                    self.pushQueue.pop(i)
+                    self.pushQueue[i].pushed = True
                 elif push.ticks >= self.bluePushTicks:
                     self.interface.bluePusher = True
+            if self.pushQueue[i].pushed:
+                self.pushQueue.pop(i)
+            else:
+                i += 1
 
     def outgoing(self):
         self.refreshRunUntil()
