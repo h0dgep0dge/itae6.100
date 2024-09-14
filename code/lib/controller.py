@@ -106,7 +106,7 @@ class conveyorController:
         if len(self.colourQueue) > 0:
             print(self.colourQueue[0],"at outgoing barrier")
             self.pushQueue.append(pushMe(colourQueue.pop(0)))
-        else
+        else:
             print("Something at outgoing barrier, don't know what colour! fuck!")
 
     def update(self):
@@ -115,7 +115,7 @@ class conveyorController:
         if not self.armed:
             if self.interface.armButton:
                 self.arm()
-            else
+            else:
                 return
 
         if self.interface.disarmButton:
@@ -139,12 +139,12 @@ class conveyorController:
             if not self.encoderLatched:
                 self.tick()
                 self.encoderLatched = True
-        else
+        else:
             self.encoderLatched = False
         
         if self.interface.outgoingBarrier.value:
             if not self.OBarrierLatched:
                 self.outgoing()
                 self.OBarrierLatched = True
-        else
+        else:
             self.OBarrierLatched = False

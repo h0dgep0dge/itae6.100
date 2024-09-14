@@ -39,7 +39,7 @@ class conveyorInterface():
         self._statusLED = LED(self.MCPpins[3],self.MCPpins[5],self.MCPpins[4])
     
     def initButtons(self):
-        for pin in [6,7]]:
+        for pin in [6,7]:
             self.MCPpins[pin].direction = Direction.INPUT
             self.MCPpins[pin].pull = Pull.UP
         self.redButton = Debouncer(self.MCPpins[7])
