@@ -97,7 +97,7 @@ class conveyorController:
                 elif push.ticks >= self.bluePushTicks:
                     self.interface.bluePusher = True
             if self.pushQueue[i].pushed:
-                self.pushQueue.pop(i)
+                del self.pushQueue[i]
             else:
                 i += 1
 
