@@ -1,4 +1,5 @@
 class COLOURS:
+    'Provides some constants that represent colours'
     OFF     = 0b000
     
     RED     = 0b100
@@ -13,6 +14,7 @@ class COLOURS:
 
 class LED:
     def __init__(self,red,green,blue):
+        'Parameters are pins, corresponding to each colour of an RGB LED'
         self.red = red
         self.green = green
         self.blue = blue
