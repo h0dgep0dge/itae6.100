@@ -9,8 +9,11 @@ class pushMe:
         self.colour = colour
 
 class conveyorController:
+    'The almighty conveyor controller object. Make an isntance and call update() frequently, let the class do the rest'
     runTime = 20 # The amount of time to keep running after the last sensor input
 
+    # ticks are how long to wait between the outgoing barrier and the respective pusher
+    # dwell is how long to leave the pusher activated
     whitePushTicks = 10
     redPushTicks = 20
     bluePushTicks = 30
@@ -40,6 +43,7 @@ class conveyorController:
         self.interface.colourLED = COLOURS.OFF
 
     def disarm(self):
+        'Set the armed flag to off, and set all outputs to safe values'
         self.armed = False
         self.interface.motor.value = False
         self.interface.pump.value = False
@@ -50,29 +54,35 @@ class conveyorController:
         self.interface.colourLED = COLOURS.OFF
 
     def arm(self):
+        'Set the arm flag, and switch the status led to red for armed'
         self.armed = True
         self.interface.status = COLOURS.RED
 
     def refreshRunUntil(self):
+        'Updates the runUntil to let the machine run another runTime seconds'
         self.runUntil = time.monotonic() + self.runTime # I assume time.monotonic returns a number of seconds? docs don't say
 
     def start(self):
+        'Set the running flag and start the motor and pump'
         self.running = True
         self.motor.value = True
         self.pump.value = True
     
     def stop(self):
+        'Set the running flag and drop running the motor and pump'
         self.running = False
         self.motor.value = False
         self.pump.value = False
 
     def feedSensor(self):
+        'Grab the analog reading from the colour sensor, sticks it up the sensor object, then adds anything returned to the colour queue'
         c = self.sensor.feed(self.interface.colourSensor.value)
-        if c:
+        if c: # If c has a value other than None, something has just passed under the sensor
             print("Recieved colour",c)
-            self.colourQueue.append(c)
+            self.colourQueue.append(c) # record the colour of the passing object
 
     def tick(self):
+        'Called every time the encoder ticks over, takes care of timing the pushers'
         print("Recieved encoder tick")
         i = 0
         while i < len(self.pushQueue):
@@ -102,6 +112,7 @@ class conveyorController:
                 i += 1
 
     def outgoing(self):
+        'Called when the outgoing barrier breaks, grabs the oldest colour from the colour queue and puts it into the pushing queue'
         self.refreshRunUntil()
         if len(self.colourQueue) > 0:
             print(self.colourQueue[0],"at outgoing barrier")
@@ -110,41 +121,44 @@ class conveyorController:
             print("Something at outgoing barrier, don't know what colour! fuck!")
 
     def update(self):
-        self.interface.update()
+        'Called frequently, to check all the inputs, control the outputs, and update the state of the controller'
+        self.interface.update() # calls the "call frequently" function of the interface class
 
         if not self.armed:
-            if self.interface.armButton:
+            if self.interface.armButton: # if the machine isn't armed, but the arm button is pressed
                 self.arm()
             else:
-                return
+                return # if the machine isn't armed and shouldn't be armed, do nothing further and return back
 
-        if self.interface.disarmButton:
+        if self.interface.disarmButton: # the machine is armed, but the disarm button is pressed, disarm and do nothing else
             self.disarm()
             return
 
         self.feedSensor()
 
-        if not self.running:
-            if self.interface.incomingBarrier.value:
-                self.refreshRunUntil()
-                self.run()
+        # FIXME! refactor so the incoming barrier refresh runs even if the machine is running already!
+        if not self.running: # the machine is armed, but nothing is running until an object is placed on the machine
+            if self.interface.incomingBarrier.value: # an object has been placed on the machine
+                self.refreshRunUntil() # give the machine runTime seconds to run
+                self.run()             # and start it running
             else:
-                return
+                return # the machine isn't running and there's nothing placed on the belt, don't need to do anything
         
-        if self.runUntil < time.monotonic():
+        if self.runUntil < time.monotonic(): # the runUntil time has passed, so the machine should stop
             self.stop()
             return
         
-        if self.interface.rotaryEncoder.value:
-            if not self.encoderLatched:
-                self.tick()
-                self.encoderLatched = True
-        else:
+        if self.interface.rotaryEncoder.value: # the encoder is pressed
+            if not self.encoderLatched: # if encoderLatched isn't true, the encoder has only just ticked
+                self.tick() # run the tick() logic
+                self.encoderLatched = True # set the latched variable so tick() is only called once per tick
+        else: # unlatch the encoder when the encoder isn't pressed
             self.encoderLatched = False
         
-        if self.interface.outgoingBarrier.value:
-            if not self.OBarrierLatched:
-                self.outgoing()
-                self.OBarrierLatched = True
-        else:
+        if self.interface.outgoingBarrier.value: # something has tripped the outgoing barrier
+            self.refreshRunUntil() # since there's something moving on the conveyor, keep the runUntil topped up
+            if not self.OBarrierLatched: # this is the rising edge of the barrier signal
+                self.outgoing() # run the logic for an object waiting at the outgoing barrier
+                self.OBarrierLatched = True # latch so the logic function only runs once per pulse
+        else: # reset the latch when the barrier clears again
             self.OBarrierLatched = False
