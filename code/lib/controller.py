@@ -143,6 +143,9 @@ class conveyorController:
                 self.run()             # and start it running
             else:
                 return # the machine isn't running and there's nothing placed on the belt, don't need to do anything
+        elif self.interface.incomingBarrier.value: # the machine is already running, but something just got placed on the belt
+            self.refreshRunUntil() # keep it running
+
         
         if self.runUntil < time.monotonic(): # the runUntil time has passed, so the machine should stop
             self.stop()
