@@ -48,9 +48,6 @@ class conveyorInterface():
             self.MCPpins[pin].pull = Pull.UP
         self.redButton = Debouncer(self.MCPpins[7])
         self.greenButton = Debouncer(self.MCPpins[6])
-
-        self.armButton = self.redButton
-        self.disarmButton = self.greenButton
     
     def initInputs(self):
         'Sets up debouncers on the digital inputs'
