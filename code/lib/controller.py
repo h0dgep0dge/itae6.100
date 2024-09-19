@@ -122,7 +122,7 @@ class conveyorController:
             else:
                 i += 1
         if len(self.colourQueue) > 0:
-            self.interface.colourLED = self.colourQueue[0]
+            self.interface.colourLED = self.colourQueue[-1] # set the colour to the last colour in the queue
         else:
             self.interface.colourLED = COLOURS.OFF
 
