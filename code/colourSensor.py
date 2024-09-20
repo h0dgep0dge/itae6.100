@@ -7,10 +7,9 @@ class colourSensor:
     WHITE = 3
     RESETTING = 4
     
-    BLUETHRESH  = 7.5
-    REDTHRESH   = 5
-    WHITETHRESH = 2.5
-    RESETTHRESH = 8
+    BLUETHRESH  = 6.8
+    REDTHRESH   = 5.9
+    WHITETHRESH = 2.9
     MARGIN      = 0.5
     
     def __init__(self):
