@@ -21,8 +21,8 @@ class conveyorController:
 
     # ticks are how long to wait between the outgoing barrier and the respective pusher
     # dwell is how long to leave the pusher activated
-    whitePushTicks = 10
-    redPushTicks = 20
+    whitePushTicks = 3
+    redPushTicks = 8
     bluePushTicks = 30
     pusherDwell = 3
 
@@ -94,7 +94,7 @@ class conveyorController:
 
     def tick(self):
         'Called every time the encoder ticks over, takes care of timing the pushers'
-        print("Recieved encoder tick",self.colourQueue,self.pushQueue)
+        print("Recieved encoder tick",self.colourQueue,self.pushQueue,self.sensor.state)
         i = 0
         while i < len(self.pushQueue):
             push = self.pushQueue[i]
