@@ -152,12 +152,12 @@ class conveyorController:
         self.feedSensor()
 
         if not self.running: # the machine is armed, but nothing is running until an object is placed on the machine
-            if self.interface.incomingBarrier.value: # an object has been placed on the machine
+            if self.interface.incomingBarrier: # an object has been placed on the machine
                 self.refreshRunUntil() # give the machine runTime seconds to run
                 self.start()           # and start it running
             else:
                 return # the machine isn't running and there's nothing placed on the belt, don't need to do anything
-        elif self.interface.incomingBarrier.value: # the machine is already running, but something just got placed on the belt
+        elif self.interface.incomingBarrier: # the machine is already running, but something just got placed on the belt
             self.refreshRunUntil() # so keep it running
 
         
@@ -165,14 +165,14 @@ class conveyorController:
             self.stop()
             return
         
-        if self.interface.rotaryEncoder.value: # the encoder is pressed
+        if self.interface.rotaryEncoder: # the encoder is pressed
             if not self.encoderLatched: # if encoderLatched isn't true, the encoder has only just ticked
                 self.tick() # run the tick() logic
                 self.encoderLatched = True # set the latched variable so tick() is only called once per tick
         else: # unlatch the encoder when the encoder isn't pressed
             self.encoderLatched = False
         
-        if self.interface.outgoingBarrier.value: # something has tripped the outgoing barrier
+        if self.interface.outgoingBarrier: # something has tripped the outgoing barrier
             self.refreshRunUntil() # since there's something moving on the conveyor, keep the runUntil topped up
             if not self.OBarrierLatched: # this is the rising edge of the barrier signal
                 self.outgoing() # run the logic for an object waiting at the outgoing barrier

@@ -51,9 +51,9 @@ class conveyorInterface():
     
     def initInputs(self):
         'Sets up debouncers on the digital inputs'
-        self.incomingBarrier = Debouncer(iomapping.IX2)
-        self.outgoingBarrier = Debouncer(iomapping.IX5)
-        self.rotaryEncoder = Debouncer(iomapping.IX4)
+        self._incomingBarrier = Debouncer(iomapping.IX2)
+        self._outgoingBarrier = Debouncer(iomapping.IX5)
+        self._rotaryEncoder = Debouncer(iomapping.IX4)
 
     @property
     def armButton(self):
@@ -62,7 +62,19 @@ class conveyorInterface():
     @property
     def disarmButton(self):
         return not self.greenButton.value # Needs a not because these are active low
-
+    
+    @property
+    def incomingBarrier(self):
+        return not self._incomingBarrier.value
+    
+    @property
+    def outgoingBarrier(self):
+        return not self._outgoingBarrier.value
+    
+    @property
+    def rotaryEncoder(self):
+        return not self._rotaryEncoder.value
+    
     @property
     def colourLED(self):
         return self._colourLED.value
@@ -81,8 +93,8 @@ class conveyorInterface():
 
     def update(self):
         # runs update on all the debouncers
-        self.incomingBarrier.update()
-        self.outgoingBarrier.update()
-        self.rotaryEncoder.update()
+        self._incomingBarrier.update()
+        self._outgoingBarrier.update()
+        self._rotaryEncoder.update()
         self.greenButton.update()
         self.redButton.update()
