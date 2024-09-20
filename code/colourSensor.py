@@ -8,9 +8,9 @@ class colourSensor:
     RESETTING = 4
     
     BLUETHRESH  = 6.8
-    REDTHRESH   = 5.9
-    WHITETHRESH = 2.9
-    MARGIN      = 0.5
+    REDTHRESH   = 6.1
+    WHITETHRESH = 3
+    MARGIN      = 0.3
     
     def __init__(self):
         self.state = self.WAITING
