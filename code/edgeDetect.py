@@ -1,4 +1,7 @@
 '''
+TURNS OUT YOU MIGHT NOT WANT TO USE AS A BLOCKER FOR pyRTOS
+The way the scheduler works, I think it could run the generator without running the respective task, and eat the edge detection
+
 Some generators to use as blockers with pyRTOS
 For detecting rising (false-true) and falling (true-false) edges on board pins
 but it should work with other things with a value property that return a bool
