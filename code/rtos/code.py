@@ -28,15 +28,21 @@ def pusher(self):
             pushed = False
             pin.value = False
 
-redPusher = pyRTOS.Task(pusher,name="redPusher",mailbox=True)
-redPusher.deliver({"pin":interface.redPusher,"dwell":0.1})
+redPusher = pyRTOS.Task(pusher,name="redPusher",mailbox=True,priority=8)
+redPusher.deliver({"pin":interface.redPusher,"dwell":0.5})
 pyRTOS.add_task(redPusher)
 
 def tick(self):
-    blocker = edgeDetect.risingEdgeDetect(interface.rotary_encoder)
+    blocker = edgeDetect.risingEdgeDetect(interface.rotaryEncoder)
+    count = 0
     yield
+    while True:
+        yield [blocker]
+        count += 1
+        if count % 10 == 0:
+            self.send(pyRTOS.Message(200,self,"redPusher"))
 
-pyRTOS.add_task(pyRTOS.Task(tick))
+pyRTOS.add_task(pyRTOS.Task(tick,priority=8))
 
 def interfaceUpdate(self):
     # initiate
@@ -45,6 +51,6 @@ def interfaceUpdate(self):
         interface.update()
         yield
 
-pyRTOS.add_task(pyRTOS.Task(runner))
+pyRTOS.add_task(pyRTOS.Task(interfaceUpdate))
 
 pyRTOS.start()
