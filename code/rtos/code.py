@@ -32,6 +32,14 @@ redPusher = pyRTOS.Task(pusher,name="redPusher",mailbox=True,priority=8)
 redPusher.deliver({"pin":interface.redPusher,"dwell":0.5})
 pyRTOS.add_task(redPusher)
 
+redPusher = pyRTOS.Task(pusher,name="whitePusher",mailbox=True,priority=8)
+redPusher.deliver({"pin":interface.whitePusher,"dwell":0.5})
+pyRTOS.add_task(redPusher)
+
+redPusher = pyRTOS.Task(pusher,name="bluePusher",mailbox=True,priority=8)
+redPusher.deliver({"pin":interface.bluePusher,"dwell":0.5})
+pyRTOS.add_task(redPusher)
+
 def tick(self):
     blocker = edgeDetect.risingEdgeDetect(interface.rotaryEncoder)
     count = 0
