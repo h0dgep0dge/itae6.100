@@ -46,27 +46,57 @@ redPusher.deliver({"pin":interface.bluePusher,"dwell":0.5})
 pyRTOS.add_task(redPusher)
 
 def tick(self):
-    blocker = edgeDetect.risingEdgeDetect(interface.rotaryEncoder)
     count = 0
     yield
     while True:
-        yield [blocker]
+        yield [pyRTOS.wait_for_message(self)]
+        m = self.recv()
         count += 1
         if count % 10 == 0:
             self.send(pyRTOS.Message(200,self,"redPusher"))
 
-pyRTOS.add_task(pyRTOS.Task(tick,priority=8))
+pyRTOS.add_task(pyRTOS.Task(tick,name="tick",priority=8))
+
+def outgoing(self):
+    count = 0
+    yield
+    while True:
+        yield [pyRTOS.wait_for_message(self)]
+        m = self.recv()
+        count += 1
+        if count % 10 == 0:
+            self.send(pyRTOS.Message(200,self,"bluePusher"))
+
+pyRTOS.add_task(pyRTOS.Task(tick,name="outgoing",priority=8))
+
+def incoming(self):
+    count = 0
+    yield
+    while True:
+        yield [pyRTOS.wait_for_message(self)]
+        m = self.recv()
+        count += 1
+        if count % 10 == 0:
+            self.send(pyRTOS.Message(200,self,"whitePusher"))
+
+pyRTOS.add_task(pyRTOS.Task(tick,name="incoming",priority=8))
 
 def interfaceUpdate(self):
-    detectors = ["",edgeDetect.risingEdgeDetect(interface.rotaryEncoder)
-    edgeDetect.risingEdgeDetect(interface.incomingBarrier)
-    edgeDetect.risingEdgeDetect(interface.outgoingBarrier)
-    edgeDetect.risingEdgeDetect(interface.armButton)
-    edgeDetect.risingEdgeDetect(interface.disarmButton)]
+    detectors = [("tick",     edgeDetect.risingEdgeDetect(interface.rotaryEncoder)),
+                 ("incoming", edgeDetect.risingEdgeDetect(interface.incomingBarrier)),
+                 ("outgoing", edgeDetect.risingEdgeDetect(interface.outgoingBarrier))]
+    arm = edgeDetect.risingEdgeDetect(interface.armButton)
+    disarm = edgeDetect.risingEdgeDetect(interface.disarmButton)
     yield
     while True:
         interface.update()
-
+        for detector in map(lambda d : (d[0],next(d[1])),detectors):
+            if detector[1]:
+                self.send(pyRTOS.Message(200,self,detector[0]))
+        if next(disarm):
+            self.send(pyRTOS.Message(200,self,"control"))
+        elif next(arm):
+            self.send(pyRTOS.Message(201,self,"control"))
         yield
 
 pyRTOS.add_task(pyRTOS.Task(interfaceUpdate))
