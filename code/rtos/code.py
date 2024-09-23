@@ -7,6 +7,11 @@ import iomapping
 import digitalio
 import board
 
+INPUTS = 256
+RISING = 0
+FALLING = 1
+CHANGING = 2
+
 interface = conveyorInterface()
 
 def pusher(self):
@@ -53,10 +58,15 @@ def tick(self):
 pyRTOS.add_task(pyRTOS.Task(tick,priority=8))
 
 def interfaceUpdate(self):
-    # initiate
+    detectors = ["",edgeDetect.risingEdgeDetect(interface.rotaryEncoder)
+    edgeDetect.risingEdgeDetect(interface.incomingBarrier)
+    edgeDetect.risingEdgeDetect(interface.outgoingBarrier)
+    edgeDetect.risingEdgeDetect(interface.armButton)
+    edgeDetect.risingEdgeDetect(interface.disarmButton)]
     yield
     while True:
         interface.update()
+
         yield
 
 pyRTOS.add_task(pyRTOS.Task(interfaceUpdate))

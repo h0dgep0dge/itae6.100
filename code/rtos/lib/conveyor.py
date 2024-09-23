@@ -7,7 +7,15 @@ from RGBLED import *
 
 import iomapping
 
-class conveyorInterface():
+class Inverter:
+    __init__(self,valIn):
+        self._valIn = valIn
+    
+    @property
+    def value(self):
+        return not self._valIn.value
+
+class conveyorInterface:
     'Class that provides a simple interface to all the inputs and outputs of the conveyor belt'
     # Output Mappings
     pump = iomapping.QX0
@@ -46,22 +54,24 @@ class conveyorInterface():
         for pin in [6,7]:
             self.MCPpins[pin].direction = Direction.INPUT
             self.MCPpins[pin].pull = Pull.UP
-        self.redButton = Debouncer(self.MCPpins[7])
-        self.greenButton = Debouncer(self.MCPpins[6])
+        self._redButton = Debouncer(self.MCPpins[7])
+        self._greenButton = Debouncer(self.MCPpins[6])
+
+        self.redButton = Inverter(self._redButton)
+        self.greenButton = Inverter(self._greenButton)
+
+        self.armButton = self.redButton
+        self.disarmButton = self.greenButton
     
     def initInputs(self):
         'Sets up debouncers on the digital inputs'
-        self.incomingBarrier = Debouncer(iomapping.IX2)
-        self.outgoingBarrier = Debouncer(iomapping.IX5)
-        self.rotaryEncoder = Debouncer(iomapping.IX4)
+        self._incomingBarrier = Debouncer(iomapping.IX2)
+        self._outgoingBarrier = Debouncer(iomapping.IX5)
+        self._rotaryEncoder = Debouncer(iomapping.IX4)
 
-    @property
-    def armButton(self):
-        return not self.redButton.value # Needs a not because these are active low
-    
-    @property
-    def disarmButton(self):
-        return not self.greenButton.value # Needs a not because these are active low
+        self.incomingBarrier = Inverter(self._incomingBarrier)
+        self.outgoingBarrier = Inverter(self._outgoingBarrier)
+        self.rotaryEncoder = Inverter(self._rotaryEncoder)
 
     @property
     def colourLED(self):
@@ -81,8 +91,8 @@ class conveyorInterface():
 
     def update(self):
         # runs update on all the debouncers
-        self.incomingBarrier.update()
-        self.outgoingBarrier.update()
-        self.rotaryEncoder.update()
-        self.greenButton.update()
-        self.redButton.update()
+        self._incomingBarrier.update()
+        self._outgoingBarrier.update()
+        self._rotaryEncoder.update()
+        self._greenButton.update()
+        self._redButton.update()
