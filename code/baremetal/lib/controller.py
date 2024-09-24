@@ -2,6 +2,7 @@ from conveyor import conveyorInterface
 from colourSensor import colourSensor
 from RGBLED import COLOURS
 import time
+from filter import Filter
 
 class pushMe:
     def __init__(self,colour):
@@ -17,14 +18,14 @@ class pushMe:
 
 class conveyorController:
     'The almighty conveyor controller object. Make an isntance and call update() frequently, let the class do the rest'
-    runTime = 60 # The amount of time to keep running after the last sensor input
+    runTime = 10 # The amount of time to keep running after the last sensor input
 
     # ticks are how long to wait between the outgoing barrier and the respective pusher
     # dwell is how long to leave the pusher activated
     whitePushTicks = 3
     redPushTicks = 8
-    bluePushTicks = 30
-    pusherDwell = 3
+    bluePushTicks = 13
+    pusherDwell = 0
 
     def __init__(self):
         self.interface = conveyorInterface()
@@ -38,6 +39,7 @@ class conveyorController:
         self.pushQueue = []
 
         # Initialize sensor object
+        self.filter = Filter(20)
         self.sensor = colourSensor()
 
         # Set outputs to initial values
@@ -86,7 +88,8 @@ class conveyorController:
 
     def feedSensor(self):
         'Grab the analog reading from the colour sensor, sticks it up the sensor object, then adds anything returned to the colour queue'
-        c = self.sensor.feed(self.interface.colourSensor.value/65535*9)
+        
+        c = self.sensor.feed(self.interface.colourSensor.value/65535*9.5144)
         if c: # If c has a value other than None, something has just passed under the sensor
             print("Recieved colour",c)
             self.colourQueue.append(c) # record the colour of the passing object
@@ -138,7 +141,8 @@ class conveyorController:
     def update(self):
         'Called frequently, to check all the inputs, control the outputs, and update the state of the controller'
         self.interface.update() # calls the "call frequently" function of the interface class
-
+        self.feedSensor()
+        
         if not self.armed:
             if self.interface.armButton: # if the machine isn't armed, but the arm button is pressed
                 self.arm()
@@ -148,8 +152,7 @@ class conveyorController:
         if self.interface.disarmButton: # the machine is armed, but the disarm button is pressed, disarm and do nothing else
             self.disarm()
             return
-
-        self.feedSensor()
+        
 
         if not self.running: # the machine is armed, but nothing is running until an object is placed on the machine
             if self.interface.incomingBarrier: # an object has been placed on the machine
