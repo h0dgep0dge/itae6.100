@@ -1,4 +1,4 @@
-from conveyor import conveyorInterface
+from conveyorInterface import conveyorInterface
 from colourSensor import colourSensor
 from RGBLED import COLOURS
 import time
