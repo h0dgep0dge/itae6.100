@@ -9,7 +9,7 @@
 | QX0.5   | GP16      | 21       | → |              |
 | QX0.6   | GP15      | 20       | → |              |
 | QX0.7   | GP14      | 19       | → |              |
-|Main Inputs|
+| Main Inputs |
 | IX0.0   | GP6       | 9        | ← |                        |
 | IX0.1   | GP7       | 10       | ← |                        |
 | IX0.2   | GP8       | 11       | ← | Incoming Light Barrier |
@@ -18,7 +18,7 @@
 | IX0.5   | GP11      | 15       | ← | Outgoing Light Barrier |
 | IX0.6   | GP12      | 16       | ← |                        |
 | IX0.7   | GP13      | 17       | ← |                        |
-|IO Expander|
+| IO Expander |
 | -       | MCP.GP0   | -        | → | Colour LED R |
 | -       | MCP.GP1   | -        | → | Colour LED B |
 | -       | MCP.GP2   | -        | → | Colour LED G |
@@ -27,7 +27,7 @@
 | -       | MCP.GP5   | -        | → | Status LED G |
 | -       | MCP.GP6   | -        | ← | Green Button |
 | -       | MCP.GP7   | -        | ← | Red Button   |
-|Other|				
+| Other |				
 | I2C SDA | GP0       | 1        | ↔ | MCP IO Expander |
 | I2C SCL | GP1       | 2        | → | MCP IO Expander |
 | IW0     | GP26      | 31       | ← | Colour Sensor   |
