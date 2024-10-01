@@ -9,13 +9,14 @@ import iomapping
 
 class conveyorInterface():
     'Class that provides a simple interface to all the inputs and outputs of the conveyor belt'
+    relayActiveLow = False
     # Output Mappings
-    pump = iomapping.QX0
-    motor = iomapping.QX1
+    _pump = iomapping.QX0
+    _motor = iomapping.QX1
     
-    whitePusher = iomapping.QX2
-    redPusher = iomapping.QX3
-    bluePusher = iomapping.QX4
+    _whitePusher = iomapping.QX2
+    _redPusher = iomapping.QX3
+    _bluePusher = iomapping.QX4
 
     # Analog Input Mapping
     colourSensor = iomapping.IW0
@@ -26,6 +27,7 @@ class conveyorInterface():
     
     def initMCP(self):
         'Sets up the MCP object and provides all the pins'
+        
         self.mcp = MCP23008(iomapping.I2C)
         self.MCPpins = []
         for i in range(0,8):
@@ -90,7 +92,47 @@ class conveyorInterface():
     @colourLED.setter
     def statusLED(self,value):
         self._statusLED.value = value
-
+    
+    @property
+    def pump(self):
+        return self.relayActiveLow ^ self._pump.value
+    
+    @pump.setter
+    def pump(self,value):
+        self._pump.value = self.relayActiveLow ^ value
+    
+    @property
+    def motor(self):
+        return self.relayActiveLow ^ self._motor.value
+    
+    @motor.setter
+    def motor(self,value):
+        self._motor.value = self.relayActiveLow ^ value
+    
+    @property
+    def whitePusher(self):
+        return self.relayActiveLow ^ self._whitePusher.value
+    
+    @whitePusher.setter
+    def whitePusher(self,value):
+        self._whitePusher.value = self.relayActiveLow ^ value
+    
+    @property
+    def redPusher(self):
+        return self.relayActiveLow ^ self._redPusher.value
+    
+    @redPusher.setter
+    def redPusher(self,value):
+        self._redPusher.value = self.relayActiveLow ^ value
+    
+    @property
+    def bluePusher(self):
+        return self.relayActiveLow ^ self._bluePusher.value
+    
+    @bluePusher.setter
+    def bluePusher(self,value):
+        self._bluePusher.value = self.relayActiveLow ^ value
+    
     def update(self):
         # runs update on all the debouncers
         self._incomingBarrier.update()

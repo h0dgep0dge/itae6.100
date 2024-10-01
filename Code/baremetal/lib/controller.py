@@ -2,7 +2,6 @@ from conveyorInterface import conveyorInterface
 from colourSensor import colourSensor
 from RGBLED import COLOURS
 import time
-from filter import Filter
 
 class pushMe:
     def __init__(self,colour):
@@ -29,7 +28,7 @@ class conveyorController:
 
     def __init__(self):
         self.interface = conveyorInterface()
-
+        
         # Set state to initial values
         self.armed = False
         self.running = False
@@ -39,26 +38,25 @@ class conveyorController:
         self.pushQueue = []
 
         # Initialize sensor object
-        self.filter = Filter(20)
         self.sensor = colourSensor()
 
         # Set outputs to initial values
-        self.interface.motor.value = False
-        self.interface.pump.value = False
-        self.interface.whitePusher.value = False
-        self.interface.redPusher.value = False
-        self.interface.bluePusher.value = False
+        self.interface.motor = False
+        self.interface.pump = False
+        self.interface.whitePusher = False
+        self.interface.redPusher = False
+        self.interface.bluePusher = False
         self.interface.statusLED = COLOURS.GREEN
         self.interface.colourLED = COLOURS.OFF
 
     def disarm(self):
         'Set the armed flag to off, and set all outputs to safe values'
         self.armed = False
-        self.interface.motor.value = False
-        self.interface.pump.value = False
-        self.interface.whitePusher.value = False
-        self.interface.redPusher.value = False
-        self.interface.bluePusher.value = False
+        self.interface.motor = False
+        self.interface.pump = False
+        self.interface.whitePusher = False
+        self.interface.redPusher = False
+        self.interface.bluePusher = False
         self.interface.statusLED = COLOURS.GREEN
         self.interface.colourLED = COLOURS.OFF
         self.runUntil = 0
@@ -77,14 +75,14 @@ class conveyorController:
     def start(self):
         'Set the running flag and start the motor and pump'
         self.running = True
-        self.interface.motor.value = True
-        self.interface.pump.value = True
+        self.interface.motor = True
+        self.interface.pump = True
     
     def stop(self):
         'Set the running flag and drop running the motor and pump'
         self.running = False
-        self.interface.motor.value = False
-        self.interface.pump.value = False
+        self.interface.motor = False
+        self.interface.pump = False
 
     def feedSensor(self):
         'Grab the analog reading from the colour sensor, sticks it up the sensor object, then adds anything returned to the colour queue'
@@ -104,22 +102,22 @@ class conveyorController:
             push.ticks += 1
             if push.colour == COLOURS.WHITE:
                 if push.ticks > self.whitePushTicks+self.pusherDwell:
-                    self.interface.whitePusher.value = False
+                    self.interface.whitePusher = False
                     self.pushQueue[i].pushed = True
                 elif push.ticks >= self.whitePushTicks:
-                    self.interface.whitePusher.value = True
+                    self.interface.whitePusher = True
             elif push.colour == COLOURS.RED:
                 if push.ticks > self.redPushTicks+self.pusherDwell:
-                    self.interface.redPusher.value = False
+                    self.interface.redPusher = False
                     self.pushQueue[i].pushed = True
                 elif push.ticks >= self.redPushTicks:
-                    self.interface.redPusher.value = True
+                    self.interface.redPusher = True
             elif push.colour == COLOURS.BLUE:
                 if push.ticks > self.bluePushTicks+self.pusherDwell:
-                    self.interface.bluePusher.value = False
+                    self.interface.bluePusher = False
                     self.pushQueue[i].pushed = True
                 elif push.ticks >= self.bluePushTicks:
-                    self.interface.bluePusher.value = True
+                    self.interface.bluePusher = True
             if self.pushQueue[i].pushed:
                 del self.pushQueue[i]
             else:
@@ -141,7 +139,6 @@ class conveyorController:
     def update(self):
         'Called frequently, to check all the inputs, control the outputs, and update the state of the controller'
         self.interface.update() # calls the "call frequently" function of the interface class
-        self.feedSensor()
         
         if not self.armed:
             if self.interface.armButton: # if the machine isn't armed, but the arm button is pressed
@@ -153,7 +150,6 @@ class conveyorController:
             self.disarm()
             return
         
-
         if not self.running: # the machine is armed, but nothing is running until an object is placed on the machine
             if self.interface.incomingBarrier: # an object has been placed on the machine
                 self.refreshRunUntil() # give the machine runTime seconds to run
@@ -163,6 +159,7 @@ class conveyorController:
         elif self.interface.incomingBarrier: # the machine is already running, but something just got placed on the belt
             self.refreshRunUntil() # so keep it running
 
+        self.feedSensor()
         
         if self.runUntil < time.monotonic(): # the runUntil time has passed, so the machine should stop
             self.stop()
