@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2024-11-03T12:34:03"/>
-  <contentHeader name="Unnamed" modificationDateTime="2024-11-04T14:10:12">
+  <contentHeader name="Unnamed" modificationDateTime="2024-11-04T15:37:03">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -82,17 +82,17 @@
             </variable>
           </localVars>
           <localVars>
-            <variable name="Change" address="%IX0.2">
+            <variable name="Change" address="%IX0.5">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="Cross_A" address="%IX0.1">
+            <variable name="Cross_A" address="%IX0.6">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="Cross_B" address="%IX0.0">
+            <variable name="Cross_B" address="%IX0.7">
               <type>
                 <BOOL/>
               </type>
@@ -170,42 +170,42 @@
             </variable>
           </localVars>
           <localVars>
-            <variable name="Red_B" address="%QX0.0">
+            <variable name="Red_B" address="%QX0.5">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="Amber_B" address="%QX0.1">
+            <variable name="Amber_B" address="%QX0.4">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="Green_B" address="%QX0.2">
+            <variable name="Green_B" address="%QX0.3">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="Stop_B" address="%QX0.3">
+            <variable name="Stop_B" address="%QX0.7">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="Red_A" address="%QX0.4">
+            <variable name="Red_A" address="%QX0.2">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="Amber_A" address="%QX0.5">
+            <variable name="Amber_A" address="%QX0.1">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="Green_A" address="%QX0.6">
+            <variable name="Green_A" address="%QX0.0">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="Stop_A" address="%QX0.7">
+            <variable name="Stop_A" address="%QX0.6">
               <type>
                 <BOOL/>
               </type>
