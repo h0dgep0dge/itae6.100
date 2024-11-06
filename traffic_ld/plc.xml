@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2024-11-03T12:34:03"/>
-  <contentHeader name="Unnamed" modificationDateTime="2024-11-05T22:57:46">
+  <contentHeader name="Unnamed" modificationDateTime="2024-11-06T21:45:40">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -220,6 +220,26 @@
             <variable name="Crossing_B_Latch">
               <type>
                 <BOOL/>
+              </type>
+            </variable>
+            <variable name="TON9">
+              <type>
+                <derived name="TON"/>
+              </type>
+            </variable>
+            <variable name="TON10">
+              <type>
+                <derived name="TON"/>
+              </type>
+            </variable>
+            <variable name="TON11">
+              <type>
+                <derived name="TON"/>
+              </type>
+            </variable>
+            <variable name="TON12">
+              <type>
+                <derived name="TON"/>
               </type>
             </variable>
           </localVars>
@@ -1219,11 +1239,11 @@
                   <position x="1200" y="970"/>
                   <position x="1151" y="970"/>
                 </connection>
-                <connection refLocalId="203">
+                <connection refLocalId="278" formalParameter="Q">
                   <position x="1250" y="950"/>
-                  <position x="1240" y="950"/>
-                  <position x="1240" y="1000"/>
-                  <position x="270" y="1000"/>
+                  <position x="1220" y="950"/>
+                  <position x="1220" y="1030"/>
+                  <position x="400" y="1030"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1422,36 +1442,36 @@
               <variable>Traffic_A</variable>
             </contact>
             <leftPowerRail localId="77" width="10" height="40" executionOrderId="0">
-              <position x="40" y="1030"/>
+              <position x="40" y="1090"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
             </leftPowerRail>
             <rightPowerRail localId="78" width="10" height="40" executionOrderId="0">
-              <position x="1330" y="1030"/>
+              <position x="1330" y="1090"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="79">
-                  <position x="1330" y="1050"/>
-                  <position x="1271" y="1050"/>
+                  <position x="1330" y="1110"/>
+                  <position x="1271" y="1110"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <coil localId="79" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="1250" y="1040"/>
+              <position x="1250" y="1100"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="80">
-                  <position x="1250" y="1050"/>
-                  <position x="1200" y="1050"/>
-                  <position x="1200" y="1070"/>
-                  <position x="1151" y="1070"/>
+                  <position x="1250" y="1110"/>
+                  <position x="1200" y="1110"/>
+                  <position x="1200" y="1130"/>
+                  <position x="1151" y="1130"/>
                 </connection>
-                <connection refLocalId="200">
-                  <position x="1250" y="1050"/>
-                  <position x="1230" y="1050"/>
-                  <position x="1230" y="1120"/>
-                  <position x="270" y="1120"/>
+                <connection refLocalId="275" formalParameter="Q">
+                  <position x="1250" y="1110"/>
+                  <position x="1220" y="1110"/>
+                  <position x="1220" y="1200"/>
+                  <position x="400" y="1200"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1460,14 +1480,14 @@
               <variable>A_Crossing_B_Amber</variable>
             </coil>
             <contact localId="80" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="1130" y="1060"/>
+              <position x="1130" y="1120"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="81">
-                  <position x="1130" y="1070"/>
-                  <position x="1095" y="1070"/>
-                  <position x="1095" y="1050"/>
-                  <position x="1061" y="1050"/>
+                  <position x="1130" y="1130"/>
+                  <position x="1095" y="1130"/>
+                  <position x="1095" y="1110"/>
+                  <position x="1061" y="1110"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1476,14 +1496,14 @@
               <variable>B_Crossing_B</variable>
             </contact>
             <contact localId="81" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="1040" y="1040"/>
+              <position x="1040" y="1100"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="82">
-                  <position x="1040" y="1050"/>
-                  <position x="1005" y="1050"/>
-                  <position x="1005" y="1070"/>
-                  <position x="971" y="1070"/>
+                  <position x="1040" y="1110"/>
+                  <position x="1005" y="1110"/>
+                  <position x="1005" y="1130"/>
+                  <position x="971" y="1130"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1492,14 +1512,14 @@
               <variable>B_Crossing_A</variable>
             </contact>
             <contact localId="82" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="950" y="1060"/>
+              <position x="950" y="1120"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="83">
-                  <position x="950" y="1070"/>
-                  <position x="915" y="1070"/>
-                  <position x="915" y="1050"/>
-                  <position x="881" y="1050"/>
+                  <position x="950" y="1130"/>
+                  <position x="915" y="1130"/>
+                  <position x="915" y="1110"/>
+                  <position x="881" y="1110"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1508,14 +1528,14 @@
               <variable>A_Crossing_B</variable>
             </contact>
             <contact localId="83" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="860" y="1040"/>
+              <position x="860" y="1100"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="84">
-                  <position x="860" y="1050"/>
-                  <position x="810" y="1050"/>
-                  <position x="810" y="1070"/>
-                  <position x="761" y="1070"/>
+                  <position x="860" y="1110"/>
+                  <position x="810" y="1110"/>
+                  <position x="810" y="1130"/>
+                  <position x="761" y="1130"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1524,14 +1544,14 @@
               <variable>A_Crossing_A</variable>
             </contact>
             <contact localId="84" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="740" y="1060"/>
+              <position x="740" y="1120"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="85">
-                  <position x="740" y="1070"/>
-                  <position x="695" y="1070"/>
-                  <position x="695" y="1050"/>
-                  <position x="651" y="1050"/>
+                  <position x="740" y="1130"/>
+                  <position x="695" y="1130"/>
+                  <position x="695" y="1110"/>
+                  <position x="651" y="1110"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1540,14 +1560,14 @@
               <variable>B_Crossing_B_Amber</variable>
             </contact>
             <contact localId="85" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="630" y="1040"/>
+              <position x="630" y="1100"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="86">
-                  <position x="630" y="1050"/>
-                  <position x="580" y="1050"/>
-                  <position x="580" y="1070"/>
-                  <position x="531" y="1070"/>
+                  <position x="630" y="1110"/>
+                  <position x="580" y="1110"/>
+                  <position x="580" y="1130"/>
+                  <position x="531" y="1130"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1556,14 +1576,14 @@
               <variable>B_Crossing_A_Amber</variable>
             </contact>
             <contact localId="86" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="510" y="1060"/>
+              <position x="510" y="1120"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="87">
-                  <position x="510" y="1070"/>
-                  <position x="465" y="1070"/>
-                  <position x="465" y="1050"/>
-                  <position x="421" y="1050"/>
+                  <position x="510" y="1130"/>
+                  <position x="465" y="1130"/>
+                  <position x="465" y="1110"/>
+                  <position x="421" y="1110"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1572,14 +1592,14 @@
               <variable>A_Crossing_B_Amber</variable>
             </contact>
             <contact localId="87" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="400" y="1040"/>
+              <position x="400" y="1100"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="88">
-                  <position x="400" y="1050"/>
-                  <position x="370" y="1050"/>
-                  <position x="370" y="1070"/>
-                  <position x="341" y="1070"/>
+                  <position x="400" y="1110"/>
+                  <position x="370" y="1110"/>
+                  <position x="370" y="1130"/>
+                  <position x="341" y="1130"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1588,14 +1608,14 @@
               <variable>A_Crossing_A_Amber</variable>
             </contact>
             <contact localId="88" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="320" y="1060"/>
+              <position x="320" y="1120"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="89">
-                  <position x="320" y="1070"/>
-                  <position x="295" y="1070"/>
-                  <position x="295" y="1050"/>
-                  <position x="271" y="1050"/>
+                  <position x="320" y="1130"/>
+                  <position x="295" y="1130"/>
+                  <position x="295" y="1110"/>
+                  <position x="271" y="1110"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1604,14 +1624,14 @@
               <variable>BtoA_Amber</variable>
             </contact>
             <contact localId="89" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="250" y="1040"/>
+              <position x="250" y="1100"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="90">
-                  <position x="250" y="1050"/>
-                  <position x="220" y="1050"/>
-                  <position x="220" y="1070"/>
-                  <position x="191" y="1070"/>
+                  <position x="250" y="1110"/>
+                  <position x="220" y="1110"/>
+                  <position x="220" y="1130"/>
+                  <position x="191" y="1130"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1620,14 +1640,14 @@
               <variable>AtoB_Amber</variable>
             </contact>
             <contact localId="90" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="170" y="1060"/>
+              <position x="170" y="1120"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="91">
-                  <position x="170" y="1070"/>
-                  <position x="140" y="1070"/>
-                  <position x="140" y="1050"/>
-                  <position x="121" y="1050"/>
+                  <position x="170" y="1130"/>
+                  <position x="140" y="1130"/>
+                  <position x="140" y="1110"/>
+                  <position x="121" y="1110"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1636,12 +1656,12 @@
               <variable>Traffic_B</variable>
             </contact>
             <contact localId="91" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="100" y="1040"/>
+              <position x="100" y="1100"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="77">
-                  <position x="100" y="1050"/>
-                  <position x="50" y="1050"/>
+                  <position x="100" y="1110"/>
+                  <position x="50" y="1110"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1650,36 +1670,36 @@
               <variable>Traffic_A</variable>
             </contact>
             <leftPowerRail localId="92" width="10" height="40" executionOrderId="0">
-              <position x="40" y="1160"/>
+              <position x="40" y="1260"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
             </leftPowerRail>
             <rightPowerRail localId="93" width="10" height="40" executionOrderId="0">
-              <position x="1330" y="1160"/>
+              <position x="1330" y="1260"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="94">
-                  <position x="1330" y="1180"/>
-                  <position x="1271" y="1180"/>
+                  <position x="1330" y="1280"/>
+                  <position x="1271" y="1280"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <coil localId="94" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="1250" y="1170"/>
+              <position x="1250" y="1270"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="95">
-                  <position x="1250" y="1180"/>
-                  <position x="1200" y="1180"/>
-                  <position x="1200" y="1200"/>
-                  <position x="1151" y="1200"/>
+                  <position x="1250" y="1280"/>
+                  <position x="1200" y="1280"/>
+                  <position x="1200" y="1300"/>
+                  <position x="1151" y="1300"/>
                 </connection>
-                <connection refLocalId="205">
-                  <position x="1250" y="1180"/>
-                  <position x="1220" y="1180"/>
-                  <position x="1220" y="1240"/>
-                  <position x="270" y="1240"/>
+                <connection refLocalId="280" formalParameter="Q">
+                  <position x="1250" y="1280"/>
+                  <position x="1220" y="1280"/>
+                  <position x="1220" y="1370"/>
+                  <position x="420" y="1370"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1688,14 +1708,14 @@
               <variable>B_Crossing_A_Amber</variable>
             </coil>
             <contact localId="95" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="1130" y="1190"/>
+              <position x="1130" y="1290"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="96">
-                  <position x="1130" y="1200"/>
-                  <position x="1095" y="1200"/>
-                  <position x="1095" y="1180"/>
-                  <position x="1061" y="1180"/>
+                  <position x="1130" y="1300"/>
+                  <position x="1095" y="1300"/>
+                  <position x="1095" y="1280"/>
+                  <position x="1061" y="1280"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1704,14 +1724,14 @@
               <variable>B_Crossing_B</variable>
             </contact>
             <contact localId="96" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="1040" y="1170"/>
+              <position x="1040" y="1270"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="97">
-                  <position x="1040" y="1180"/>
-                  <position x="1005" y="1180"/>
-                  <position x="1005" y="1200"/>
-                  <position x="971" y="1200"/>
+                  <position x="1040" y="1280"/>
+                  <position x="1005" y="1280"/>
+                  <position x="1005" y="1300"/>
+                  <position x="971" y="1300"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1720,14 +1740,14 @@
               <variable>B_Crossing_A</variable>
             </contact>
             <contact localId="97" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="950" y="1190"/>
+              <position x="950" y="1290"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="98">
-                  <position x="950" y="1200"/>
-                  <position x="915" y="1200"/>
-                  <position x="915" y="1180"/>
-                  <position x="881" y="1180"/>
+                  <position x="950" y="1300"/>
+                  <position x="915" y="1300"/>
+                  <position x="915" y="1280"/>
+                  <position x="881" y="1280"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1736,14 +1756,14 @@
               <variable>A_Crossing_B</variable>
             </contact>
             <contact localId="98" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="860" y="1170"/>
+              <position x="860" y="1270"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="99">
-                  <position x="860" y="1180"/>
-                  <position x="810" y="1180"/>
-                  <position x="810" y="1200"/>
-                  <position x="761" y="1200"/>
+                  <position x="860" y="1280"/>
+                  <position x="810" y="1280"/>
+                  <position x="810" y="1300"/>
+                  <position x="761" y="1300"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1752,14 +1772,14 @@
               <variable>A_Crossing_A</variable>
             </contact>
             <contact localId="99" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="740" y="1190"/>
+              <position x="740" y="1290"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="100">
-                  <position x="740" y="1200"/>
-                  <position x="695" y="1200"/>
-                  <position x="695" y="1180"/>
-                  <position x="651" y="1180"/>
+                  <position x="740" y="1300"/>
+                  <position x="695" y="1300"/>
+                  <position x="695" y="1280"/>
+                  <position x="651" y="1280"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1768,14 +1788,14 @@
               <variable>B_Crossing_B_Amber</variable>
             </contact>
             <contact localId="100" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="630" y="1170"/>
+              <position x="630" y="1270"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="101">
-                  <position x="630" y="1180"/>
-                  <position x="580" y="1180"/>
-                  <position x="580" y="1200"/>
-                  <position x="531" y="1200"/>
+                  <position x="630" y="1280"/>
+                  <position x="580" y="1280"/>
+                  <position x="580" y="1300"/>
+                  <position x="531" y="1300"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1784,14 +1804,14 @@
               <variable>B_Crossing_A_Amber</variable>
             </contact>
             <contact localId="101" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="510" y="1190"/>
+              <position x="510" y="1290"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="102">
-                  <position x="510" y="1200"/>
-                  <position x="465" y="1200"/>
-                  <position x="465" y="1180"/>
-                  <position x="421" y="1180"/>
+                  <position x="510" y="1300"/>
+                  <position x="465" y="1300"/>
+                  <position x="465" y="1280"/>
+                  <position x="421" y="1280"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1800,14 +1820,14 @@
               <variable>A_Crossing_B_Amber</variable>
             </contact>
             <contact localId="102" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="400" y="1170"/>
+              <position x="400" y="1270"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="103">
-                  <position x="400" y="1180"/>
-                  <position x="370" y="1180"/>
-                  <position x="370" y="1200"/>
-                  <position x="341" y="1200"/>
+                  <position x="400" y="1280"/>
+                  <position x="370" y="1280"/>
+                  <position x="370" y="1300"/>
+                  <position x="341" y="1300"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1816,14 +1836,14 @@
               <variable>A_Crossing_A_Amber</variable>
             </contact>
             <contact localId="103" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="320" y="1190"/>
+              <position x="320" y="1290"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="104">
-                  <position x="320" y="1200"/>
-                  <position x="295" y="1200"/>
-                  <position x="295" y="1180"/>
-                  <position x="271" y="1180"/>
+                  <position x="320" y="1300"/>
+                  <position x="295" y="1300"/>
+                  <position x="295" y="1280"/>
+                  <position x="271" y="1280"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1832,14 +1852,14 @@
               <variable>BtoA_Amber</variable>
             </contact>
             <contact localId="104" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="250" y="1170"/>
+              <position x="250" y="1270"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="105">
-                  <position x="250" y="1180"/>
-                  <position x="220" y="1180"/>
-                  <position x="220" y="1200"/>
-                  <position x="191" y="1200"/>
+                  <position x="250" y="1280"/>
+                  <position x="220" y="1280"/>
+                  <position x="220" y="1300"/>
+                  <position x="191" y="1300"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1848,14 +1868,14 @@
               <variable>AtoB_Amber</variable>
             </contact>
             <contact localId="105" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="170" y="1190"/>
+              <position x="170" y="1290"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="106">
-                  <position x="170" y="1200"/>
-                  <position x="140" y="1200"/>
-                  <position x="140" y="1180"/>
-                  <position x="121" y="1180"/>
+                  <position x="170" y="1300"/>
+                  <position x="140" y="1300"/>
+                  <position x="140" y="1280"/>
+                  <position x="121" y="1280"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1864,12 +1884,12 @@
               <variable>Traffic_B</variable>
             </contact>
             <contact localId="106" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="100" y="1170"/>
+              <position x="100" y="1270"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="92">
-                  <position x="100" y="1180"/>
-                  <position x="50" y="1180"/>
+                  <position x="100" y="1280"/>
+                  <position x="50" y="1280"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1878,36 +1898,36 @@
               <variable>Traffic_A</variable>
             </contact>
             <leftPowerRail localId="107" width="10" height="40" executionOrderId="0">
-              <position x="40" y="1270"/>
+              <position x="40" y="1430"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
             </leftPowerRail>
             <rightPowerRail localId="108" width="10" height="40" executionOrderId="0">
-              <position x="1330" y="1270"/>
+              <position x="1330" y="1430"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="109">
-                  <position x="1330" y="1290"/>
-                  <position x="1271" y="1290"/>
+                  <position x="1330" y="1450"/>
+                  <position x="1271" y="1450"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <coil localId="109" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="1250" y="1280"/>
+              <position x="1250" y="1440"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="110">
-                  <position x="1250" y="1290"/>
-                  <position x="1200" y="1290"/>
-                  <position x="1200" y="1310"/>
-                  <position x="1151" y="1310"/>
+                  <position x="1250" y="1450"/>
+                  <position x="1200" y="1450"/>
+                  <position x="1200" y="1470"/>
+                  <position x="1151" y="1470"/>
                 </connection>
-                <connection refLocalId="207">
-                  <position x="1250" y="1290"/>
-                  <position x="1230" y="1290"/>
-                  <position x="1230" y="1350"/>
-                  <position x="270" y="1350"/>
+                <connection refLocalId="282" formalParameter="Q">
+                  <position x="1250" y="1450"/>
+                  <position x="1220" y="1450"/>
+                  <position x="1220" y="1520"/>
+                  <position x="400" y="1520"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1916,14 +1936,14 @@
               <variable>B_Crossing_B_Amber</variable>
             </coil>
             <contact localId="110" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="1130" y="1300"/>
+              <position x="1130" y="1460"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="111">
-                  <position x="1130" y="1310"/>
-                  <position x="1095" y="1310"/>
-                  <position x="1095" y="1290"/>
-                  <position x="1061" y="1290"/>
+                  <position x="1130" y="1470"/>
+                  <position x="1095" y="1470"/>
+                  <position x="1095" y="1450"/>
+                  <position x="1061" y="1450"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1932,14 +1952,14 @@
               <variable>B_Crossing_B</variable>
             </contact>
             <contact localId="111" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="1040" y="1280"/>
+              <position x="1040" y="1440"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="112">
-                  <position x="1040" y="1290"/>
-                  <position x="1005" y="1290"/>
-                  <position x="1005" y="1310"/>
-                  <position x="971" y="1310"/>
+                  <position x="1040" y="1450"/>
+                  <position x="1005" y="1450"/>
+                  <position x="1005" y="1470"/>
+                  <position x="971" y="1470"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1948,14 +1968,14 @@
               <variable>B_Crossing_A</variable>
             </contact>
             <contact localId="112" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="950" y="1300"/>
+              <position x="950" y="1460"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="113">
-                  <position x="950" y="1310"/>
-                  <position x="915" y="1310"/>
-                  <position x="915" y="1290"/>
-                  <position x="881" y="1290"/>
+                  <position x="950" y="1470"/>
+                  <position x="915" y="1470"/>
+                  <position x="915" y="1450"/>
+                  <position x="881" y="1450"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1964,14 +1984,14 @@
               <variable>A_Crossing_B</variable>
             </contact>
             <contact localId="113" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="860" y="1280"/>
+              <position x="860" y="1440"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="114">
-                  <position x="860" y="1290"/>
-                  <position x="810" y="1290"/>
-                  <position x="810" y="1310"/>
-                  <position x="761" y="1310"/>
+                  <position x="860" y="1450"/>
+                  <position x="810" y="1450"/>
+                  <position x="810" y="1470"/>
+                  <position x="761" y="1470"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1980,14 +2000,14 @@
               <variable>A_Crossing_A</variable>
             </contact>
             <contact localId="114" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="740" y="1300"/>
+              <position x="740" y="1460"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="115">
-                  <position x="740" y="1310"/>
-                  <position x="695" y="1310"/>
-                  <position x="695" y="1290"/>
-                  <position x="651" y="1290"/>
+                  <position x="740" y="1470"/>
+                  <position x="695" y="1470"/>
+                  <position x="695" y="1450"/>
+                  <position x="651" y="1450"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1996,14 +2016,14 @@
               <variable>B_Crossing_B_Amber</variable>
             </contact>
             <contact localId="115" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="630" y="1280"/>
+              <position x="630" y="1440"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="116">
-                  <position x="630" y="1290"/>
-                  <position x="580" y="1290"/>
-                  <position x="580" y="1310"/>
-                  <position x="531" y="1310"/>
+                  <position x="630" y="1450"/>
+                  <position x="580" y="1450"/>
+                  <position x="580" y="1470"/>
+                  <position x="531" y="1470"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2012,14 +2032,14 @@
               <variable>B_Crossing_A_Amber</variable>
             </contact>
             <contact localId="116" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="510" y="1300"/>
+              <position x="510" y="1460"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="117">
-                  <position x="510" y="1310"/>
-                  <position x="465" y="1310"/>
-                  <position x="465" y="1290"/>
-                  <position x="421" y="1290"/>
+                  <position x="510" y="1470"/>
+                  <position x="465" y="1470"/>
+                  <position x="465" y="1450"/>
+                  <position x="421" y="1450"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2028,14 +2048,14 @@
               <variable>A_Crossing_B_Amber</variable>
             </contact>
             <contact localId="117" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="400" y="1280"/>
+              <position x="400" y="1440"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="118">
-                  <position x="400" y="1290"/>
-                  <position x="370" y="1290"/>
-                  <position x="370" y="1310"/>
-                  <position x="341" y="1310"/>
+                  <position x="400" y="1450"/>
+                  <position x="370" y="1450"/>
+                  <position x="370" y="1470"/>
+                  <position x="341" y="1470"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2044,14 +2064,14 @@
               <variable>A_Crossing_A_Amber</variable>
             </contact>
             <contact localId="118" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="320" y="1300"/>
+              <position x="320" y="1460"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="119">
-                  <position x="320" y="1310"/>
-                  <position x="295" y="1310"/>
-                  <position x="295" y="1290"/>
-                  <position x="271" y="1290"/>
+                  <position x="320" y="1470"/>
+                  <position x="295" y="1470"/>
+                  <position x="295" y="1450"/>
+                  <position x="271" y="1450"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2060,14 +2080,14 @@
               <variable>BtoA_Amber</variable>
             </contact>
             <contact localId="119" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="250" y="1280"/>
+              <position x="250" y="1440"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="120">
-                  <position x="250" y="1290"/>
-                  <position x="220" y="1290"/>
-                  <position x="220" y="1310"/>
-                  <position x="191" y="1310"/>
+                  <position x="250" y="1450"/>
+                  <position x="220" y="1450"/>
+                  <position x="220" y="1470"/>
+                  <position x="191" y="1470"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2076,14 +2096,14 @@
               <variable>AtoB_Amber</variable>
             </contact>
             <contact localId="120" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="170" y="1300"/>
+              <position x="170" y="1460"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="121">
-                  <position x="170" y="1310"/>
-                  <position x="140" y="1310"/>
-                  <position x="140" y="1290"/>
-                  <position x="121" y="1290"/>
+                  <position x="170" y="1470"/>
+                  <position x="140" y="1470"/>
+                  <position x="140" y="1450"/>
+                  <position x="121" y="1450"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2092,12 +2112,12 @@
               <variable>Traffic_B</variable>
             </contact>
             <contact localId="121" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="100" y="1280"/>
+              <position x="100" y="1440"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="107">
-                  <position x="100" y="1290"/>
-                  <position x="50" y="1290"/>
+                  <position x="100" y="1450"/>
+                  <position x="50" y="1450"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2106,36 +2126,36 @@
               <variable>Traffic_A</variable>
             </contact>
             <leftPowerRail localId="122" width="10" height="40" executionOrderId="0">
-              <position x="40" y="1380"/>
+              <position x="40" y="1750"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
             </leftPowerRail>
             <rightPowerRail localId="123" width="10" height="40" executionOrderId="0">
-              <position x="1330" y="1380"/>
+              <position x="1330" y="1750"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="124">
-                  <position x="1330" y="1400"/>
-                  <position x="1271" y="1400"/>
+                  <position x="1330" y="1770"/>
+                  <position x="1271" y="1770"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <coil localId="124" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="1250" y="1390"/>
+              <position x="1250" y="1760"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="125">
-                  <position x="1250" y="1400"/>
-                  <position x="1200" y="1400"/>
-                  <position x="1200" y="1420"/>
-                  <position x="1151" y="1420"/>
+                  <position x="1250" y="1770"/>
+                  <position x="1200" y="1770"/>
+                  <position x="1200" y="1790"/>
+                  <position x="1151" y="1790"/>
                 </connection>
                 <connection refLocalId="210" formalParameter="Q">
-                  <position x="1250" y="1400"/>
-                  <position x="1230" y="1400"/>
-                  <position x="1230" y="1480"/>
-                  <position x="290" y="1480"/>
+                  <position x="1250" y="1770"/>
+                  <position x="1230" y="1770"/>
+                  <position x="1230" y="1850"/>
+                  <position x="290" y="1850"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -2144,466 +2164,10 @@
               <variable>A_Crossing_A</variable>
             </coil>
             <contact localId="125" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="1130" y="1410"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="126">
-                  <position x="1130" y="1420"/>
-                  <position x="1095" y="1420"/>
-                  <position x="1095" y="1400"/>
-                  <position x="1061" y="1400"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>B_Crossing_B</variable>
-            </contact>
-            <contact localId="126" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="1040" y="1390"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="127">
-                  <position x="1040" y="1400"/>
-                  <position x="1005" y="1400"/>
-                  <position x="1005" y="1420"/>
-                  <position x="971" y="1420"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>B_Crossing_A</variable>
-            </contact>
-            <contact localId="127" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="950" y="1410"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="128">
-                  <position x="950" y="1420"/>
-                  <position x="915" y="1420"/>
-                  <position x="915" y="1400"/>
-                  <position x="881" y="1400"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>A_Crossing_B</variable>
-            </contact>
-            <contact localId="128" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="860" y="1390"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="129">
-                  <position x="860" y="1400"/>
-                  <position x="810" y="1400"/>
-                  <position x="810" y="1420"/>
-                  <position x="761" y="1420"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>A_Crossing_A</variable>
-            </contact>
-            <contact localId="129" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="740" y="1410"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="130">
-                  <position x="740" y="1420"/>
-                  <position x="695" y="1420"/>
-                  <position x="695" y="1400"/>
-                  <position x="651" y="1400"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>B_Crossing_B_Amber</variable>
-            </contact>
-            <contact localId="130" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="630" y="1390"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="131">
-                  <position x="630" y="1400"/>
-                  <position x="580" y="1400"/>
-                  <position x="580" y="1420"/>
-                  <position x="531" y="1420"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>B_Crossing_A_Amber</variable>
-            </contact>
-            <contact localId="131" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="510" y="1410"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="132">
-                  <position x="510" y="1420"/>
-                  <position x="465" y="1420"/>
-                  <position x="465" y="1400"/>
-                  <position x="421" y="1400"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>A_Crossing_B_Amber</variable>
-            </contact>
-            <contact localId="132" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="400" y="1390"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="133">
-                  <position x="400" y="1400"/>
-                  <position x="370" y="1400"/>
-                  <position x="370" y="1420"/>
-                  <position x="341" y="1420"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>A_Crossing_A_Amber</variable>
-            </contact>
-            <contact localId="133" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="320" y="1410"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="134">
-                  <position x="320" y="1420"/>
-                  <position x="295" y="1420"/>
-                  <position x="295" y="1400"/>
-                  <position x="271" y="1400"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>BtoA_Amber</variable>
-            </contact>
-            <contact localId="134" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="250" y="1390"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="135">
-                  <position x="250" y="1400"/>
-                  <position x="220" y="1400"/>
-                  <position x="220" y="1420"/>
-                  <position x="191" y="1420"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>AtoB_Amber</variable>
-            </contact>
-            <contact localId="135" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="170" y="1410"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="136">
-                  <position x="170" y="1420"/>
-                  <position x="140" y="1420"/>
-                  <position x="140" y="1400"/>
-                  <position x="121" y="1400"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>Traffic_B</variable>
-            </contact>
-            <contact localId="136" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="100" y="1390"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="122">
-                  <position x="100" y="1400"/>
-                  <position x="50" y="1400"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>Traffic_A</variable>
-            </contact>
-            <leftPowerRail localId="137" width="10" height="40" executionOrderId="0">
-              <position x="40" y="1560"/>
-              <connectionPointOut formalParameter="">
-                <relPosition x="10" y="20"/>
-              </connectionPointOut>
-            </leftPowerRail>
-            <rightPowerRail localId="138" width="10" height="40" executionOrderId="0">
-              <position x="1330" y="1560"/>
-              <connectionPointIn>
-                <relPosition x="0" y="20"/>
-                <connection refLocalId="139">
-                  <position x="1330" y="1580"/>
-                  <position x="1271" y="1580"/>
-                </connection>
-              </connectionPointIn>
-            </rightPowerRail>
-            <coil localId="139" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="1250" y="1570"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="140">
-                  <position x="1250" y="1580"/>
-                  <position x="1200" y="1580"/>
-                  <position x="1200" y="1600"/>
-                  <position x="1151" y="1600"/>
-                </connection>
-                <connection refLocalId="216" formalParameter="Q">
-                  <position x="1250" y="1580"/>
-                  <position x="1220" y="1580"/>
-                  <position x="1220" y="1670"/>
-                  <position x="300" y="1670"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>A_Crossing_B</variable>
-            </coil>
-            <contact localId="140" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="1130" y="1590"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="141">
-                  <position x="1130" y="1600"/>
-                  <position x="1095" y="1600"/>
-                  <position x="1095" y="1580"/>
-                  <position x="1061" y="1580"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>B_Crossing_B</variable>
-            </contact>
-            <contact localId="141" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="1040" y="1570"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="142">
-                  <position x="1040" y="1580"/>
-                  <position x="1005" y="1580"/>
-                  <position x="1005" y="1600"/>
-                  <position x="971" y="1600"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>B_Crossing_A</variable>
-            </contact>
-            <contact localId="142" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="950" y="1590"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="143">
-                  <position x="950" y="1600"/>
-                  <position x="915" y="1600"/>
-                  <position x="915" y="1580"/>
-                  <position x="881" y="1580"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>A_Crossing_B</variable>
-            </contact>
-            <contact localId="143" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="860" y="1570"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="144">
-                  <position x="860" y="1580"/>
-                  <position x="810" y="1580"/>
-                  <position x="810" y="1600"/>
-                  <position x="761" y="1600"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>A_Crossing_A</variable>
-            </contact>
-            <contact localId="144" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="740" y="1590"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="145">
-                  <position x="740" y="1600"/>
-                  <position x="695" y="1600"/>
-                  <position x="695" y="1580"/>
-                  <position x="651" y="1580"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>B_Crossing_B_Amber</variable>
-            </contact>
-            <contact localId="145" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="630" y="1570"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="146">
-                  <position x="630" y="1580"/>
-                  <position x="580" y="1580"/>
-                  <position x="580" y="1600"/>
-                  <position x="531" y="1600"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>B_Crossing_A_Amber</variable>
-            </contact>
-            <contact localId="146" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="510" y="1590"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="147">
-                  <position x="510" y="1600"/>
-                  <position x="465" y="1600"/>
-                  <position x="465" y="1580"/>
-                  <position x="421" y="1580"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>A_Crossing_B_Amber</variable>
-            </contact>
-            <contact localId="147" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="400" y="1570"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="148">
-                  <position x="400" y="1580"/>
-                  <position x="370" y="1580"/>
-                  <position x="370" y="1600"/>
-                  <position x="341" y="1600"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>A_Crossing_A_Amber</variable>
-            </contact>
-            <contact localId="148" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="320" y="1590"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="149">
-                  <position x="320" y="1600"/>
-                  <position x="295" y="1600"/>
-                  <position x="295" y="1580"/>
-                  <position x="271" y="1580"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>BtoA_Amber</variable>
-            </contact>
-            <contact localId="149" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="250" y="1570"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="150">
-                  <position x="250" y="1580"/>
-                  <position x="220" y="1580"/>
-                  <position x="220" y="1600"/>
-                  <position x="191" y="1600"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>AtoB_Amber</variable>
-            </contact>
-            <contact localId="150" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="170" y="1590"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="151">
-                  <position x="170" y="1600"/>
-                  <position x="140" y="1600"/>
-                  <position x="140" y="1580"/>
-                  <position x="121" y="1580"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>Traffic_B</variable>
-            </contact>
-            <contact localId="151" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="100" y="1570"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="137">
-                  <position x="100" y="1580"/>
-                  <position x="50" y="1580"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>Traffic_A</variable>
-            </contact>
-            <leftPowerRail localId="152" width="10" height="40" executionOrderId="0">
-              <position x="40" y="1750"/>
-              <connectionPointOut formalParameter="">
-                <relPosition x="10" y="20"/>
-              </connectionPointOut>
-            </leftPowerRail>
-            <rightPowerRail localId="153" width="10" height="40" executionOrderId="0">
-              <position x="1330" y="1750"/>
-              <connectionPointIn>
-                <relPosition x="0" y="20"/>
-                <connection refLocalId="154">
-                  <position x="1330" y="1770"/>
-                  <position x="1271" y="1770"/>
-                </connection>
-              </connectionPointIn>
-            </rightPowerRail>
-            <coil localId="154" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="1250" y="1760"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="155">
-                  <position x="1250" y="1770"/>
-                  <position x="1200" y="1770"/>
-                  <position x="1200" y="1790"/>
-                  <position x="1151" y="1790"/>
-                </connection>
-                <connection refLocalId="219" formalParameter="Q">
-                  <position x="1250" y="1770"/>
-                  <position x="1220" y="1770"/>
-                  <position x="1220" y="1860"/>
-                  <position x="300" y="1860"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>B_Crossing_A</variable>
-            </coil>
-            <contact localId="155" negated="true" width="21" height="20" executionOrderId="0">
               <position x="1130" y="1780"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="156">
+                <connection refLocalId="126">
                   <position x="1130" y="1790"/>
                   <position x="1095" y="1790"/>
                   <position x="1095" y="1770"/>
@@ -2615,11 +2179,11 @@
               </connectionPointOut>
               <variable>B_Crossing_B</variable>
             </contact>
-            <contact localId="156" negated="false" width="21" height="20" executionOrderId="0">
+            <contact localId="126" negated="true" width="21" height="20" executionOrderId="0">
               <position x="1040" y="1760"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="157">
+                <connection refLocalId="127">
                   <position x="1040" y="1770"/>
                   <position x="1005" y="1770"/>
                   <position x="1005" y="1790"/>
@@ -2631,11 +2195,11 @@
               </connectionPointOut>
               <variable>B_Crossing_A</variable>
             </contact>
-            <contact localId="157" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="127" negated="true" width="21" height="20" executionOrderId="0">
               <position x="950" y="1780"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="158">
+                <connection refLocalId="128">
                   <position x="950" y="1790"/>
                   <position x="915" y="1790"/>
                   <position x="915" y="1770"/>
@@ -2647,11 +2211,11 @@
               </connectionPointOut>
               <variable>A_Crossing_B</variable>
             </contact>
-            <contact localId="158" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="128" negated="false" width="21" height="20" executionOrderId="0">
               <position x="860" y="1760"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="159">
+                <connection refLocalId="129">
                   <position x="860" y="1770"/>
                   <position x="810" y="1770"/>
                   <position x="810" y="1790"/>
@@ -2663,11 +2227,11 @@
               </connectionPointOut>
               <variable>A_Crossing_A</variable>
             </contact>
-            <contact localId="159" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="129" negated="true" width="21" height="20" executionOrderId="0">
               <position x="740" y="1780"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="160">
+                <connection refLocalId="130">
                   <position x="740" y="1790"/>
                   <position x="695" y="1790"/>
                   <position x="695" y="1770"/>
@@ -2679,11 +2243,11 @@
               </connectionPointOut>
               <variable>B_Crossing_B_Amber</variable>
             </contact>
-            <contact localId="160" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="130" negated="true" width="21" height="20" executionOrderId="0">
               <position x="630" y="1760"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="161">
+                <connection refLocalId="131">
                   <position x="630" y="1770"/>
                   <position x="580" y="1770"/>
                   <position x="580" y="1790"/>
@@ -2695,11 +2259,11 @@
               </connectionPointOut>
               <variable>B_Crossing_A_Amber</variable>
             </contact>
-            <contact localId="161" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="131" negated="true" width="21" height="20" executionOrderId="0">
               <position x="510" y="1780"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="162">
+                <connection refLocalId="132">
                   <position x="510" y="1790"/>
                   <position x="465" y="1790"/>
                   <position x="465" y="1770"/>
@@ -2711,11 +2275,11 @@
               </connectionPointOut>
               <variable>A_Crossing_B_Amber</variable>
             </contact>
-            <contact localId="162" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="132" negated="true" width="21" height="20" executionOrderId="0">
               <position x="400" y="1760"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="163">
+                <connection refLocalId="133">
                   <position x="400" y="1770"/>
                   <position x="370" y="1770"/>
                   <position x="370" y="1790"/>
@@ -2727,11 +2291,11 @@
               </connectionPointOut>
               <variable>A_Crossing_A_Amber</variable>
             </contact>
-            <contact localId="163" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="133" negated="true" width="21" height="20" executionOrderId="0">
               <position x="320" y="1780"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="164">
+                <connection refLocalId="134">
                   <position x="320" y="1790"/>
                   <position x="295" y="1790"/>
                   <position x="295" y="1770"/>
@@ -2743,11 +2307,11 @@
               </connectionPointOut>
               <variable>BtoA_Amber</variable>
             </contact>
-            <contact localId="164" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="134" negated="true" width="21" height="20" executionOrderId="0">
               <position x="250" y="1760"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="165">
+                <connection refLocalId="135">
                   <position x="250" y="1770"/>
                   <position x="220" y="1770"/>
                   <position x="220" y="1790"/>
@@ -2759,11 +2323,11 @@
               </connectionPointOut>
               <variable>AtoB_Amber</variable>
             </contact>
-            <contact localId="165" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="135" negated="true" width="21" height="20" executionOrderId="0">
               <position x="170" y="1780"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="166">
+                <connection refLocalId="136">
                   <position x="170" y="1790"/>
                   <position x="140" y="1790"/>
                   <position x="140" y="1770"/>
@@ -2775,11 +2339,11 @@
               </connectionPointOut>
               <variable>Traffic_B</variable>
             </contact>
-            <contact localId="166" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="136" negated="true" width="21" height="20" executionOrderId="0">
               <position x="100" y="1760"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="152">
+                <connection refLocalId="122">
                   <position x="100" y="1770"/>
                   <position x="50" y="1770"/>
                 </connection>
@@ -2789,49 +2353,49 @@
               </connectionPointOut>
               <variable>Traffic_A</variable>
             </contact>
-            <leftPowerRail localId="167" width="10" height="40" executionOrderId="0">
+            <leftPowerRail localId="137" width="10" height="40" executionOrderId="0">
               <position x="40" y="1930"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
             </leftPowerRail>
-            <rightPowerRail localId="168" width="10" height="40" executionOrderId="0">
+            <rightPowerRail localId="138" width="10" height="40" executionOrderId="0">
               <position x="1330" y="1930"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
-                <connection refLocalId="169">
+                <connection refLocalId="139">
                   <position x="1330" y="1950"/>
                   <position x="1271" y="1950"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
-            <coil localId="169" negated="false" width="21" height="20" executionOrderId="0">
+            <coil localId="139" negated="false" width="21" height="20" executionOrderId="0">
               <position x="1250" y="1940"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="170">
+                <connection refLocalId="140">
                   <position x="1250" y="1950"/>
                   <position x="1200" y="1950"/>
                   <position x="1200" y="1970"/>
                   <position x="1151" y="1970"/>
                 </connection>
-                <connection refLocalId="213" formalParameter="Q">
+                <connection refLocalId="216" formalParameter="Q">
                   <position x="1250" y="1950"/>
-                  <position x="1230" y="1950"/>
-                  <position x="1230" y="2040"/>
-                  <position x="290" y="2040"/>
+                  <position x="1220" y="1950"/>
+                  <position x="1220" y="2040"/>
+                  <position x="300" y="2040"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>B_Crossing_B</variable>
+              <variable>A_Crossing_B</variable>
             </coil>
-            <contact localId="170" negated="false" width="21" height="20" executionOrderId="0">
+            <contact localId="140" negated="true" width="21" height="20" executionOrderId="0">
               <position x="1130" y="1960"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="171">
+                <connection refLocalId="141">
                   <position x="1130" y="1970"/>
                   <position x="1095" y="1970"/>
                   <position x="1095" y="1950"/>
@@ -2843,11 +2407,11 @@
               </connectionPointOut>
               <variable>B_Crossing_B</variable>
             </contact>
-            <contact localId="171" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="141" negated="true" width="21" height="20" executionOrderId="0">
               <position x="1040" y="1940"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="172">
+                <connection refLocalId="142">
                   <position x="1040" y="1950"/>
                   <position x="1005" y="1950"/>
                   <position x="1005" y="1970"/>
@@ -2859,11 +2423,11 @@
               </connectionPointOut>
               <variable>B_Crossing_A</variable>
             </contact>
-            <contact localId="172" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="142" negated="false" width="21" height="20" executionOrderId="0">
               <position x="950" y="1960"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="173">
+                <connection refLocalId="143">
                   <position x="950" y="1970"/>
                   <position x="915" y="1970"/>
                   <position x="915" y="1950"/>
@@ -2875,11 +2439,11 @@
               </connectionPointOut>
               <variable>A_Crossing_B</variable>
             </contact>
-            <contact localId="173" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="143" negated="true" width="21" height="20" executionOrderId="0">
               <position x="860" y="1940"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="174">
+                <connection refLocalId="144">
                   <position x="860" y="1950"/>
                   <position x="810" y="1950"/>
                   <position x="810" y="1970"/>
@@ -2891,11 +2455,11 @@
               </connectionPointOut>
               <variable>A_Crossing_A</variable>
             </contact>
-            <contact localId="174" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="144" negated="true" width="21" height="20" executionOrderId="0">
               <position x="740" y="1960"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="175">
+                <connection refLocalId="145">
                   <position x="740" y="1970"/>
                   <position x="695" y="1970"/>
                   <position x="695" y="1950"/>
@@ -2907,11 +2471,11 @@
               </connectionPointOut>
               <variable>B_Crossing_B_Amber</variable>
             </contact>
-            <contact localId="175" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="145" negated="true" width="21" height="20" executionOrderId="0">
               <position x="630" y="1940"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="176">
+                <connection refLocalId="146">
                   <position x="630" y="1950"/>
                   <position x="580" y="1950"/>
                   <position x="580" y="1970"/>
@@ -2923,11 +2487,11 @@
               </connectionPointOut>
               <variable>B_Crossing_A_Amber</variable>
             </contact>
-            <contact localId="176" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="146" negated="true" width="21" height="20" executionOrderId="0">
               <position x="510" y="1960"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="177">
+                <connection refLocalId="147">
                   <position x="510" y="1970"/>
                   <position x="465" y="1970"/>
                   <position x="465" y="1950"/>
@@ -2939,11 +2503,11 @@
               </connectionPointOut>
               <variable>A_Crossing_B_Amber</variable>
             </contact>
-            <contact localId="177" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="147" negated="true" width="21" height="20" executionOrderId="0">
               <position x="400" y="1940"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="178">
+                <connection refLocalId="148">
                   <position x="400" y="1950"/>
                   <position x="370" y="1950"/>
                   <position x="370" y="1970"/>
@@ -2955,11 +2519,11 @@
               </connectionPointOut>
               <variable>A_Crossing_A_Amber</variable>
             </contact>
-            <contact localId="178" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="148" negated="true" width="21" height="20" executionOrderId="0">
               <position x="320" y="1960"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="179">
+                <connection refLocalId="149">
                   <position x="320" y="1970"/>
                   <position x="295" y="1970"/>
                   <position x="295" y="1950"/>
@@ -2971,11 +2535,11 @@
               </connectionPointOut>
               <variable>BtoA_Amber</variable>
             </contact>
-            <contact localId="179" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="149" negated="true" width="21" height="20" executionOrderId="0">
               <position x="250" y="1940"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="180">
+                <connection refLocalId="150">
                   <position x="250" y="1950"/>
                   <position x="220" y="1950"/>
                   <position x="220" y="1970"/>
@@ -2987,11 +2551,11 @@
               </connectionPointOut>
               <variable>AtoB_Amber</variable>
             </contact>
-            <contact localId="180" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="150" negated="true" width="21" height="20" executionOrderId="0">
               <position x="170" y="1960"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="181">
+                <connection refLocalId="151">
                   <position x="170" y="1970"/>
                   <position x="140" y="1970"/>
                   <position x="140" y="1950"/>
@@ -3003,13 +2567,469 @@
               </connectionPointOut>
               <variable>Traffic_B</variable>
             </contact>
-            <contact localId="181" negated="true" width="21" height="20" executionOrderId="0">
+            <contact localId="151" negated="true" width="21" height="20" executionOrderId="0">
               <position x="100" y="1940"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="167">
+                <connection refLocalId="137">
                   <position x="100" y="1950"/>
                   <position x="50" y="1950"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>Traffic_A</variable>
+            </contact>
+            <leftPowerRail localId="152" width="10" height="40" executionOrderId="0">
+              <position x="40" y="2120"/>
+              <connectionPointOut formalParameter="">
+                <relPosition x="10" y="20"/>
+              </connectionPointOut>
+            </leftPowerRail>
+            <rightPowerRail localId="153" width="10" height="40" executionOrderId="0">
+              <position x="1330" y="2120"/>
+              <connectionPointIn>
+                <relPosition x="0" y="20"/>
+                <connection refLocalId="154">
+                  <position x="1330" y="2140"/>
+                  <position x="1271" y="2140"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <coil localId="154" negated="false" width="21" height="20" executionOrderId="0">
+              <position x="1250" y="2130"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="155">
+                  <position x="1250" y="2140"/>
+                  <position x="1200" y="2140"/>
+                  <position x="1200" y="2160"/>
+                  <position x="1151" y="2160"/>
+                </connection>
+                <connection refLocalId="219" formalParameter="Q">
+                  <position x="1250" y="2140"/>
+                  <position x="1220" y="2140"/>
+                  <position x="1220" y="2230"/>
+                  <position x="300" y="2230"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>B_Crossing_A</variable>
+            </coil>
+            <contact localId="155" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="1130" y="2150"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="156">
+                  <position x="1130" y="2160"/>
+                  <position x="1095" y="2160"/>
+                  <position x="1095" y="2140"/>
+                  <position x="1061" y="2140"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>B_Crossing_B</variable>
+            </contact>
+            <contact localId="156" negated="false" width="21" height="20" executionOrderId="0">
+              <position x="1040" y="2130"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="157">
+                  <position x="1040" y="2140"/>
+                  <position x="1005" y="2140"/>
+                  <position x="1005" y="2160"/>
+                  <position x="971" y="2160"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>B_Crossing_A</variable>
+            </contact>
+            <contact localId="157" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="950" y="2150"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="158">
+                  <position x="950" y="2160"/>
+                  <position x="915" y="2160"/>
+                  <position x="915" y="2140"/>
+                  <position x="881" y="2140"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>A_Crossing_B</variable>
+            </contact>
+            <contact localId="158" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="860" y="2130"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="159">
+                  <position x="860" y="2140"/>
+                  <position x="810" y="2140"/>
+                  <position x="810" y="2160"/>
+                  <position x="761" y="2160"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>A_Crossing_A</variable>
+            </contact>
+            <contact localId="159" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="740" y="2150"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="160">
+                  <position x="740" y="2160"/>
+                  <position x="695" y="2160"/>
+                  <position x="695" y="2140"/>
+                  <position x="651" y="2140"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>B_Crossing_B_Amber</variable>
+            </contact>
+            <contact localId="160" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="630" y="2130"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="161">
+                  <position x="630" y="2140"/>
+                  <position x="580" y="2140"/>
+                  <position x="580" y="2160"/>
+                  <position x="531" y="2160"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>B_Crossing_A_Amber</variable>
+            </contact>
+            <contact localId="161" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="510" y="2150"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="162">
+                  <position x="510" y="2160"/>
+                  <position x="465" y="2160"/>
+                  <position x="465" y="2140"/>
+                  <position x="421" y="2140"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>A_Crossing_B_Amber</variable>
+            </contact>
+            <contact localId="162" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="400" y="2130"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="163">
+                  <position x="400" y="2140"/>
+                  <position x="370" y="2140"/>
+                  <position x="370" y="2160"/>
+                  <position x="341" y="2160"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>A_Crossing_A_Amber</variable>
+            </contact>
+            <contact localId="163" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="320" y="2150"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="164">
+                  <position x="320" y="2160"/>
+                  <position x="295" y="2160"/>
+                  <position x="295" y="2140"/>
+                  <position x="271" y="2140"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>BtoA_Amber</variable>
+            </contact>
+            <contact localId="164" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="250" y="2130"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="165">
+                  <position x="250" y="2140"/>
+                  <position x="220" y="2140"/>
+                  <position x="220" y="2160"/>
+                  <position x="191" y="2160"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>AtoB_Amber</variable>
+            </contact>
+            <contact localId="165" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="170" y="2150"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="166">
+                  <position x="170" y="2160"/>
+                  <position x="140" y="2160"/>
+                  <position x="140" y="2140"/>
+                  <position x="121" y="2140"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>Traffic_B</variable>
+            </contact>
+            <contact localId="166" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="100" y="2130"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="152">
+                  <position x="100" y="2140"/>
+                  <position x="50" y="2140"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>Traffic_A</variable>
+            </contact>
+            <leftPowerRail localId="167" width="10" height="40" executionOrderId="0">
+              <position x="40" y="2300"/>
+              <connectionPointOut formalParameter="">
+                <relPosition x="10" y="20"/>
+              </connectionPointOut>
+            </leftPowerRail>
+            <rightPowerRail localId="168" width="10" height="40" executionOrderId="0">
+              <position x="1330" y="2300"/>
+              <connectionPointIn>
+                <relPosition x="0" y="20"/>
+                <connection refLocalId="169">
+                  <position x="1330" y="2320"/>
+                  <position x="1271" y="2320"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <coil localId="169" negated="false" width="21" height="20" executionOrderId="0">
+              <position x="1250" y="2310"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="170">
+                  <position x="1250" y="2320"/>
+                  <position x="1200" y="2320"/>
+                  <position x="1200" y="2340"/>
+                  <position x="1151" y="2340"/>
+                </connection>
+                <connection refLocalId="213" formalParameter="Q">
+                  <position x="1250" y="2320"/>
+                  <position x="1230" y="2320"/>
+                  <position x="1230" y="2410"/>
+                  <position x="290" y="2410"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>B_Crossing_B</variable>
+            </coil>
+            <contact localId="170" negated="false" width="21" height="20" executionOrderId="0">
+              <position x="1130" y="2330"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="171">
+                  <position x="1130" y="2340"/>
+                  <position x="1095" y="2340"/>
+                  <position x="1095" y="2320"/>
+                  <position x="1061" y="2320"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>B_Crossing_B</variable>
+            </contact>
+            <contact localId="171" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="1040" y="2310"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="172">
+                  <position x="1040" y="2320"/>
+                  <position x="1005" y="2320"/>
+                  <position x="1005" y="2340"/>
+                  <position x="971" y="2340"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>B_Crossing_A</variable>
+            </contact>
+            <contact localId="172" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="950" y="2330"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="173">
+                  <position x="950" y="2340"/>
+                  <position x="915" y="2340"/>
+                  <position x="915" y="2320"/>
+                  <position x="881" y="2320"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>A_Crossing_B</variable>
+            </contact>
+            <contact localId="173" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="860" y="2310"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="174">
+                  <position x="860" y="2320"/>
+                  <position x="810" y="2320"/>
+                  <position x="810" y="2340"/>
+                  <position x="761" y="2340"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>A_Crossing_A</variable>
+            </contact>
+            <contact localId="174" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="740" y="2330"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="175">
+                  <position x="740" y="2340"/>
+                  <position x="695" y="2340"/>
+                  <position x="695" y="2320"/>
+                  <position x="651" y="2320"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>B_Crossing_B_Amber</variable>
+            </contact>
+            <contact localId="175" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="630" y="2310"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="176">
+                  <position x="630" y="2320"/>
+                  <position x="580" y="2320"/>
+                  <position x="580" y="2340"/>
+                  <position x="531" y="2340"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>B_Crossing_A_Amber</variable>
+            </contact>
+            <contact localId="176" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="510" y="2330"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="177">
+                  <position x="510" y="2340"/>
+                  <position x="465" y="2340"/>
+                  <position x="465" y="2320"/>
+                  <position x="421" y="2320"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>A_Crossing_B_Amber</variable>
+            </contact>
+            <contact localId="177" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="400" y="2310"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="178">
+                  <position x="400" y="2320"/>
+                  <position x="370" y="2320"/>
+                  <position x="370" y="2340"/>
+                  <position x="341" y="2340"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>A_Crossing_A_Amber</variable>
+            </contact>
+            <contact localId="178" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="320" y="2330"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="179">
+                  <position x="320" y="2340"/>
+                  <position x="295" y="2340"/>
+                  <position x="295" y="2320"/>
+                  <position x="271" y="2320"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>BtoA_Amber</variable>
+            </contact>
+            <contact localId="179" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="250" y="2310"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="180">
+                  <position x="250" y="2320"/>
+                  <position x="220" y="2320"/>
+                  <position x="220" y="2340"/>
+                  <position x="191" y="2340"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>AtoB_Amber</variable>
+            </contact>
+            <contact localId="180" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="170" y="2330"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="181">
+                  <position x="170" y="2340"/>
+                  <position x="140" y="2340"/>
+                  <position x="140" y="2320"/>
+                  <position x="121" y="2320"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>Traffic_B</variable>
+            </contact>
+            <contact localId="181" negated="true" width="21" height="20" executionOrderId="0">
+              <position x="100" y="2310"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="167">
+                  <position x="100" y="2320"/>
+                  <position x="50" y="2320"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3303,13 +3323,13 @@
               </connectionPointOut>
               <expression>Amber_Dwell</expression>
             </inVariable>
-            <contact localId="197" negated="false" edge="rising" width="21" height="20">
+            <contact localId="197" negated="false" width="21" height="20">
               <position x="180" y="690"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="204">
                   <position x="180" y="700"/>
-                  <position x="120" y="700"/>
+                  <position x="121" y="700"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3380,7 +3400,7 @@
               </connectionPointOut>
               <variable>Traffic_B</variable>
             </contact>
-            <contact localId="203" negated="false" width="20" height="20">
+            <contact localId="203" negated="false" width="21" height="20">
               <position x="250" y="990"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
@@ -3390,21 +3410,21 @@
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="20" y="10"/>
+                <relPosition x="21" y="10"/>
               </connectionPointOut>
               <variable>Crossing_A_Latch</variable>
             </contact>
-            <contact localId="200" negated="false" width="20" height="20" executionOrderId="0">
-              <position x="250" y="1110"/>
+            <contact localId="200" negated="false" width="21" height="20" executionOrderId="0">
+              <position x="250" y="1170"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="202">
-                  <position x="250" y="1120"/>
-                  <position x="131" y="1120"/>
+                  <position x="250" y="1180"/>
+                  <position x="131" y="1180"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="20" y="10"/>
+                <relPosition x="21" y="10"/>
               </connectionPointOut>
               <variable>Crossing_B_Latch</variable>
             </contact>
@@ -3441,14 +3461,14 @@
               <variable>Traffic_A</variable>
             </contact>
             <contact localId="202" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="110" y="1110"/>
+              <position x="110" y="1170"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="77">
-                  <position x="110" y="1120"/>
-                  <position x="80" y="1120"/>
-                  <position x="80" y="1050"/>
-                  <position x="50" y="1050"/>
+                  <position x="110" y="1180"/>
+                  <position x="80" y="1180"/>
+                  <position x="80" y="1110"/>
+                  <position x="50" y="1110"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3456,29 +3476,29 @@
               </connectionPointOut>
               <variable>Traffic_A</variable>
             </contact>
-            <contact localId="205" negated="false" width="20" height="20" executionOrderId="0">
-              <position x="250" y="1230"/>
+            <contact localId="205" negated="false" width="21" height="20" executionOrderId="0">
+              <position x="250" y="1330"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="206">
-                  <position x="250" y="1240"/>
-                  <position x="131" y="1240"/>
+                  <position x="250" y="1340"/>
+                  <position x="131" y="1340"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="20" y="10"/>
+                <relPosition x="21" y="10"/>
               </connectionPointOut>
               <variable>Crossing_A_Latch</variable>
             </contact>
             <contact localId="206" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="110" y="1230"/>
+              <position x="110" y="1330"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="92">
-                  <position x="110" y="1240"/>
-                  <position x="75" y="1240"/>
-                  <position x="75" y="1180"/>
-                  <position x="50" y="1180"/>
+                  <position x="110" y="1340"/>
+                  <position x="75" y="1340"/>
+                  <position x="75" y="1280"/>
+                  <position x="50" y="1280"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3486,29 +3506,29 @@
               </connectionPointOut>
               <variable>Traffic_B</variable>
             </contact>
-            <contact localId="207" negated="false" width="20" height="20" executionOrderId="0">
-              <position x="250" y="1340"/>
+            <contact localId="207" negated="false" width="21" height="20" executionOrderId="0">
+              <position x="250" y="1500"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="208">
-                  <position x="250" y="1350"/>
-                  <position x="131" y="1350"/>
+                  <position x="250" y="1510"/>
+                  <position x="131" y="1510"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="20" y="10"/>
+                <relPosition x="21" y="10"/>
               </connectionPointOut>
               <variable>Crossing_B_Latch</variable>
             </contact>
             <contact localId="208" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="110" y="1340"/>
+              <position x="110" y="1500"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="107">
-                  <position x="110" y="1350"/>
-                  <position x="75" y="1350"/>
-                  <position x="75" y="1290"/>
-                  <position x="50" y="1290"/>
+                  <position x="110" y="1510"/>
+                  <position x="75" y="1510"/>
+                  <position x="75" y="1450"/>
+                  <position x="50" y="1450"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3517,14 +3537,14 @@
               <variable>Traffic_B</variable>
             </contact>
             <contact localId="209" negated="false" width="21" height="20">
-              <position x="140" y="1460"/>
+              <position x="140" y="1830"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="122">
-                  <position x="140" y="1470"/>
-                  <position x="95" y="1470"/>
-                  <position x="95" y="1400"/>
-                  <position x="50" y="1400"/>
+                  <position x="140" y="1840"/>
+                  <position x="95" y="1840"/>
+                  <position x="95" y="1770"/>
+                  <position x="50" y="1770"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3533,16 +3553,16 @@
               <variable>A_Crossing_A_Amber</variable>
             </contact>
             <block localId="210" typeName="TON" instanceName="TON5" width="50" height="60">
-              <position x="240" y="1450"/>
+              <position x="240" y="1820"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="209">
-                      <position x="240" y="1480"/>
-                      <position x="200" y="1480"/>
-                      <position x="200" y="1470"/>
-                      <position x="161" y="1470"/>
+                      <position x="240" y="1850"/>
+                      <position x="200" y="1850"/>
+                      <position x="200" y="1840"/>
+                      <position x="161" y="1840"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3550,10 +3570,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="211">
-                      <position x="240" y="1500"/>
-                      <position x="215" y="1500"/>
-                      <position x="215" y="1520"/>
-                      <position x="190" y="1520"/>
+                      <position x="240" y="1870"/>
+                      <position x="215" y="1870"/>
+                      <position x="215" y="1890"/>
+                      <position x="190" y="1890"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3573,21 +3593,21 @@
               </outputVariables>
             </block>
             <inVariable localId="211" width="130" height="30" negated="false" executionOrderId="0">
-              <position x="60" y="1500"/>
+              <position x="60" y="1870"/>
               <connectionPointOut>
                 <relPosition x="130" y="20"/>
               </connectionPointOut>
               <expression>Amber_Dwell</expression>
             </inVariable>
             <contact localId="212" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="140" y="2020"/>
+              <position x="140" y="2390"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="167">
-                  <position x="140" y="2030"/>
-                  <position x="95" y="2030"/>
-                  <position x="95" y="1950"/>
-                  <position x="50" y="1950"/>
+                  <position x="140" y="2400"/>
+                  <position x="95" y="2400"/>
+                  <position x="95" y="2320"/>
+                  <position x="50" y="2320"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3596,16 +3616,16 @@
               <variable>B_Crossing_B_Amber</variable>
             </contact>
             <block localId="213" typeName="TON" instanceName="TON6" width="50" height="60" executionOrderId="0">
-              <position x="240" y="2010"/>
+              <position x="240" y="2380"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="212">
-                      <position x="240" y="2040"/>
-                      <position x="200" y="2040"/>
-                      <position x="200" y="2030"/>
-                      <position x="160" y="2030"/>
+                      <position x="240" y="2410"/>
+                      <position x="200" y="2410"/>
+                      <position x="200" y="2400"/>
+                      <position x="161" y="2400"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3613,10 +3633,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="214">
-                      <position x="240" y="2060"/>
-                      <position x="215" y="2060"/>
-                      <position x="215" y="2080"/>
-                      <position x="190" y="2080"/>
+                      <position x="240" y="2430"/>
+                      <position x="215" y="2430"/>
+                      <position x="215" y="2450"/>
+                      <position x="190" y="2450"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3636,21 +3656,21 @@
               </outputVariables>
             </block>
             <inVariable localId="214" width="130" height="30" negated="false" executionOrderId="0">
-              <position x="60" y="2060"/>
+              <position x="60" y="2430"/>
               <connectionPointOut>
                 <relPosition x="130" y="20"/>
               </connectionPointOut>
               <expression>Amber_Dwell</expression>
             </inVariable>
             <contact localId="215" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="150" y="1650"/>
+              <position x="150" y="2020"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="137">
-                  <position x="150" y="1660"/>
-                  <position x="100" y="1660"/>
-                  <position x="100" y="1580"/>
-                  <position x="50" y="1580"/>
+                  <position x="150" y="2030"/>
+                  <position x="100" y="2030"/>
+                  <position x="100" y="1950"/>
+                  <position x="50" y="1950"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3659,16 +3679,16 @@
               <variable>A_Crossing_B_Amber</variable>
             </contact>
             <block localId="216" typeName="TON" instanceName="TON7" width="50" height="60" executionOrderId="0">
-              <position x="250" y="1640"/>
+              <position x="250" y="2010"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="215">
-                      <position x="250" y="1670"/>
-                      <position x="210" y="1670"/>
-                      <position x="210" y="1660"/>
-                      <position x="170" y="1660"/>
+                      <position x="250" y="2040"/>
+                      <position x="210" y="2040"/>
+                      <position x="210" y="2030"/>
+                      <position x="171" y="2030"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3676,10 +3696,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="217">
-                      <position x="250" y="1690"/>
-                      <position x="225" y="1690"/>
-                      <position x="225" y="1710"/>
-                      <position x="200" y="1710"/>
+                      <position x="250" y="2060"/>
+                      <position x="225" y="2060"/>
+                      <position x="225" y="2070"/>
+                      <position x="200" y="2070"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3699,21 +3719,21 @@
               </outputVariables>
             </block>
             <inVariable localId="217" width="130" height="30" negated="false" executionOrderId="0">
-              <position x="70" y="1690"/>
+              <position x="70" y="2060"/>
               <connectionPointOut>
-                <relPosition x="130" y="20"/>
+                <relPosition x="130" y="10"/>
               </connectionPointOut>
               <expression>Amber_Dwell</expression>
             </inVariable>
             <contact localId="218" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="150" y="1840"/>
+              <position x="150" y="2210"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="152">
-                  <position x="150" y="1850"/>
-                  <position x="100" y="1850"/>
-                  <position x="100" y="1770"/>
-                  <position x="50" y="1770"/>
+                  <position x="150" y="2220"/>
+                  <position x="100" y="2220"/>
+                  <position x="100" y="2140"/>
+                  <position x="50" y="2140"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3722,16 +3742,16 @@
               <variable>B_Crossing_A_Amber</variable>
             </contact>
             <block localId="219" typeName="TON" instanceName="TON8" width="50" height="60" executionOrderId="0">
-              <position x="250" y="1830"/>
+              <position x="250" y="2200"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="218">
-                      <position x="250" y="1860"/>
-                      <position x="210" y="1860"/>
-                      <position x="210" y="1850"/>
-                      <position x="170" y="1850"/>
+                      <position x="250" y="2230"/>
+                      <position x="210" y="2230"/>
+                      <position x="210" y="2220"/>
+                      <position x="171" y="2220"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3739,10 +3759,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="220">
-                      <position x="250" y="1880"/>
-                      <position x="225" y="1880"/>
-                      <position x="225" y="1890"/>
-                      <position x="200" y="1890"/>
+                      <position x="250" y="2250"/>
+                      <position x="225" y="2250"/>
+                      <position x="225" y="2270"/>
+                      <position x="200" y="2270"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3762,19 +3782,19 @@
               </outputVariables>
             </block>
             <inVariable localId="220" width="130" height="30" negated="false" executionOrderId="0">
-              <position x="70" y="1880"/>
+              <position x="70" y="2250"/>
               <connectionPointOut>
-                <relPosition x="130" y="10"/>
+                <relPosition x="130" y="20"/>
               </connectionPointOut>
               <expression>Amber_Dwell</expression>
             </inVariable>
             <coil localId="221" negated="false" width="21" height="20">
-              <position x="220" y="2140"/>
+              <position x="220" y="2510"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="222">
-                  <position x="220" y="2150"/>
-                  <position x="141" y="2150"/>
+                  <position x="220" y="2520"/>
+                  <position x="141" y="2520"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3783,12 +3803,12 @@
               <variable>Green_A</variable>
             </coil>
             <contact localId="222" negated="false" width="21" height="20">
-              <position x="120" y="2140"/>
+              <position x="120" y="2510"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="223">
-                  <position x="120" y="2150"/>
-                  <position x="60" y="2150"/>
+                  <position x="120" y="2520"/>
+                  <position x="60" y="2520"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3797,40 +3817,40 @@
               <variable>Traffic_A</variable>
             </contact>
             <leftPowerRail localId="223" width="10" height="40">
-              <position x="50" y="2130"/>
+              <position x="50" y="2500"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
             </leftPowerRail>
             <rightPowerRail localId="224" width="10" height="40">
-              <position x="290" y="2130"/>
+              <position x="290" y="2500"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="221">
-                  <position x="290" y="2150"/>
-                  <position x="241" y="2150"/>
+                  <position x="290" y="2520"/>
+                  <position x="241" y="2520"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <coil localId="225" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="530" y="2140"/>
+              <position x="530" y="2510"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="226">
-                  <position x="530" y="2150"/>
-                  <position x="441" y="2150"/>
+                  <position x="530" y="2520"/>
+                  <position x="441" y="2520"/>
                 </connection>
                 <connection refLocalId="230">
-                  <position x="530" y="2150"/>
-                  <position x="485" y="2150"/>
-                  <position x="485" y="2240"/>
-                  <position x="440" y="2240"/>
+                  <position x="530" y="2520"/>
+                  <position x="485" y="2520"/>
+                  <position x="485" y="2610"/>
+                  <position x="441" y="2610"/>
                 </connection>
                 <connection refLocalId="229">
-                  <position x="530" y="2150"/>
-                  <position x="485" y="2150"/>
-                  <position x="485" y="2200"/>
-                  <position x="440" y="2200"/>
+                  <position x="530" y="2520"/>
+                  <position x="485" y="2520"/>
+                  <position x="485" y="2570"/>
+                  <position x="441" y="2570"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3839,12 +3859,12 @@
               <variable>Amber_A</variable>
             </coil>
             <contact localId="226" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="420" y="2140"/>
+              <position x="420" y="2510"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="227">
-                  <position x="420" y="2150"/>
-                  <position x="340" y="2150"/>
+                  <position x="420" y="2520"/>
+                  <position x="340" y="2520"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3853,30 +3873,30 @@
               <variable>A_Crossing_A_Amber</variable>
             </contact>
             <leftPowerRail localId="227" width="10" height="40" executionOrderId="0">
-              <position x="330" y="2130"/>
+              <position x="330" y="2500"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
             </leftPowerRail>
             <rightPowerRail localId="228" width="10" height="40" executionOrderId="0">
-              <position x="600" y="2130"/>
+              <position x="600" y="2500"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="225">
-                  <position x="600" y="2150"/>
-                  <position x="550" y="2150"/>
+                  <position x="600" y="2520"/>
+                  <position x="551" y="2520"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <contact localId="229" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="420" y="2190"/>
+              <position x="420" y="2560"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="227">
-                  <position x="420" y="2200"/>
-                  <position x="376" y="2200"/>
-                  <position x="376" y="2150"/>
-                  <position x="340" y="2150"/>
+                  <position x="420" y="2570"/>
+                  <position x="376" y="2570"/>
+                  <position x="376" y="2520"/>
+                  <position x="340" y="2520"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3885,14 +3905,14 @@
               <variable>A_Crossing_B_Amber</variable>
             </contact>
             <contact localId="230" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="420" y="2230"/>
+              <position x="420" y="2600"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="227">
-                  <position x="420" y="2240"/>
-                  <position x="380" y="2240"/>
-                  <position x="380" y="2150"/>
-                  <position x="340" y="2150"/>
+                  <position x="420" y="2610"/>
+                  <position x="380" y="2610"/>
+                  <position x="380" y="2520"/>
+                  <position x="340" y="2520"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3901,12 +3921,12 @@
               <variable>AtoB_Amber</variable>
             </contact>
             <coil localId="231" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="860" y="2140"/>
+              <position x="860" y="2510"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="235">
-                  <position x="860" y="2150"/>
-                  <position x="811" y="2150"/>
+                  <position x="860" y="2520"/>
+                  <position x="811" y="2520"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3915,12 +3935,12 @@
               <variable>Red_A</variable>
             </coil>
             <contact localId="232" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="730" y="2140"/>
+              <position x="730" y="2510"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="233">
-                  <position x="730" y="2150"/>
-                  <position x="670" y="2150"/>
+                  <position x="730" y="2520"/>
+                  <position x="670" y="2520"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3929,28 +3949,28 @@
               <variable>Green_A</variable>
             </contact>
             <leftPowerRail localId="233" width="10" height="40" executionOrderId="0">
-              <position x="660" y="2130"/>
+              <position x="660" y="2500"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
             </leftPowerRail>
             <rightPowerRail localId="234" width="10" height="40" executionOrderId="0">
-              <position x="930" y="2130"/>
+              <position x="930" y="2500"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="231">
-                  <position x="930" y="2150"/>
-                  <position x="881" y="2150"/>
+                  <position x="930" y="2520"/>
+                  <position x="881" y="2520"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <contact localId="235" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="790" y="2140"/>
+              <position x="790" y="2510"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="232">
-                  <position x="790" y="2150"/>
-                  <position x="751" y="2150"/>
+                  <position x="790" y="2520"/>
+                  <position x="751" y="2520"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3959,12 +3979,12 @@
               <variable>Amber_A</variable>
             </contact>
             <coil localId="236" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="220" y="2280"/>
+              <position x="220" y="2650"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="237">
-                  <position x="220" y="2290"/>
-                  <position x="141" y="2290"/>
+                  <position x="220" y="2660"/>
+                  <position x="141" y="2660"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3973,12 +3993,12 @@
               <variable>Green_B</variable>
             </coil>
             <contact localId="237" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="120" y="2280"/>
+              <position x="120" y="2650"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="238">
-                  <position x="120" y="2290"/>
-                  <position x="60" y="2290"/>
+                  <position x="120" y="2660"/>
+                  <position x="60" y="2660"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -3987,40 +4007,40 @@
               <variable>Traffic_B</variable>
             </contact>
             <leftPowerRail localId="238" width="10" height="40" executionOrderId="0">
-              <position x="50" y="2270"/>
+              <position x="50" y="2640"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
             </leftPowerRail>
             <rightPowerRail localId="239" width="10" height="40" executionOrderId="0">
-              <position x="290" y="2270"/>
+              <position x="290" y="2640"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="236">
-                  <position x="290" y="2290"/>
-                  <position x="241" y="2290"/>
+                  <position x="290" y="2660"/>
+                  <position x="241" y="2660"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <coil localId="240" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="530" y="2280"/>
+              <position x="530" y="2650"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="241">
-                  <position x="530" y="2290"/>
-                  <position x="441" y="2290"/>
+                  <position x="530" y="2660"/>
+                  <position x="441" y="2660"/>
                 </connection>
                 <connection refLocalId="243">
-                  <position x="530" y="2290"/>
-                  <position x="485" y="2290"/>
-                  <position x="485" y="2380"/>
-                  <position x="441" y="2380"/>
+                  <position x="530" y="2660"/>
+                  <position x="485" y="2660"/>
+                  <position x="485" y="2750"/>
+                  <position x="441" y="2750"/>
                 </connection>
                 <connection refLocalId="244">
-                  <position x="530" y="2290"/>
-                  <position x="485" y="2290"/>
-                  <position x="485" y="2340"/>
-                  <position x="441" y="2340"/>
+                  <position x="530" y="2660"/>
+                  <position x="485" y="2660"/>
+                  <position x="485" y="2710"/>
+                  <position x="441" y="2710"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4029,12 +4049,12 @@
               <variable>Amber_B</variable>
             </coil>
             <contact localId="241" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="420" y="2280"/>
+              <position x="420" y="2650"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="242">
-                  <position x="420" y="2290"/>
-                  <position x="340" y="2290"/>
+                  <position x="420" y="2660"/>
+                  <position x="340" y="2660"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4043,20 +4063,20 @@
               <variable>B_Crossing_A_Amber</variable>
             </contact>
             <leftPowerRail localId="242" width="10" height="40" executionOrderId="0">
-              <position x="330" y="2270"/>
+              <position x="330" y="2640"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
             </leftPowerRail>
             <contact localId="243" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="420" y="2370"/>
+              <position x="420" y="2740"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="242">
-                  <position x="420" y="2380"/>
-                  <position x="380" y="2380"/>
-                  <position x="380" y="2290"/>
-                  <position x="340" y="2290"/>
+                  <position x="420" y="2750"/>
+                  <position x="380" y="2750"/>
+                  <position x="380" y="2660"/>
+                  <position x="340" y="2660"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4065,14 +4085,14 @@
               <variable>BtoA_Amber</variable>
             </contact>
             <contact localId="244" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="420" y="2330"/>
+              <position x="420" y="2700"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="242">
-                  <position x="420" y="2340"/>
-                  <position x="376" y="2340"/>
-                  <position x="376" y="2290"/>
-                  <position x="340" y="2290"/>
+                  <position x="420" y="2710"/>
+                  <position x="376" y="2710"/>
+                  <position x="376" y="2660"/>
+                  <position x="340" y="2660"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4081,22 +4101,22 @@
               <variable>B_Crossing_B_Amber</variable>
             </contact>
             <rightPowerRail localId="245" width="10" height="40" executionOrderId="0">
-              <position x="600" y="2270"/>
+              <position x="600" y="2640"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="240">
-                  <position x="600" y="2290"/>
-                  <position x="550" y="2290"/>
+                  <position x="600" y="2660"/>
+                  <position x="551" y="2660"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <coil localId="246" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="860" y="2280"/>
+              <position x="860" y="2650"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="247">
-                  <position x="860" y="2290"/>
-                  <position x="811" y="2290"/>
+                  <position x="860" y="2660"/>
+                  <position x="811" y="2660"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4105,12 +4125,12 @@
               <variable>Red_B</variable>
             </coil>
             <contact localId="247" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="790" y="2280"/>
+              <position x="790" y="2650"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="248">
-                  <position x="790" y="2290"/>
-                  <position x="751" y="2290"/>
+                  <position x="790" y="2660"/>
+                  <position x="751" y="2660"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4119,12 +4139,12 @@
               <variable>Amber_B</variable>
             </contact>
             <contact localId="248" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="730" y="2280"/>
+              <position x="730" y="2650"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="249">
-                  <position x="730" y="2290"/>
-                  <position x="670" y="2290"/>
+                  <position x="730" y="2660"/>
+                  <position x="670" y="2660"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4133,34 +4153,34 @@
               <variable>Green_B</variable>
             </contact>
             <leftPowerRail localId="249" width="10" height="40" executionOrderId="0">
-              <position x="660" y="2270"/>
+              <position x="660" y="2640"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
             </leftPowerRail>
             <rightPowerRail localId="250" width="10" height="40" executionOrderId="0">
-              <position x="930" y="2270"/>
+              <position x="930" y="2640"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="246">
-                  <position x="930" y="2290"/>
-                  <position x="881" y="2290"/>
+                  <position x="930" y="2660"/>
+                  <position x="881" y="2660"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <coil localId="251" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="1180" y="2150"/>
+              <position x="1180" y="2520"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="252">
-                  <position x="1180" y="2160"/>
-                  <position x="1101" y="2160"/>
+                  <position x="1180" y="2530"/>
+                  <position x="1101" y="2530"/>
                 </connection>
                 <connection refLocalId="259">
-                  <position x="1180" y="2160"/>
-                  <position x="1140" y="2160"/>
-                  <position x="1140" y="2210"/>
-                  <position x="1101" y="2210"/>
+                  <position x="1180" y="2530"/>
+                  <position x="1140" y="2530"/>
+                  <position x="1140" y="2580"/>
+                  <position x="1101" y="2580"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4169,12 +4189,12 @@
               <variable>Stop_A</variable>
             </coil>
             <contact localId="252" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="1080" y="2150"/>
+              <position x="1080" y="2520"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="253">
-                  <position x="1080" y="2160"/>
-                  <position x="1020" y="2160"/>
+                  <position x="1080" y="2530"/>
+                  <position x="1020" y="2530"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4183,30 +4203,30 @@
               <variable>A_Crossing_A</variable>
             </contact>
             <leftPowerRail localId="253" width="10" height="40" executionOrderId="0">
-              <position x="1010" y="2140"/>
+              <position x="1010" y="2510"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
             </leftPowerRail>
             <rightPowerRail localId="254" width="10" height="40" executionOrderId="0">
-              <position x="1250" y="2140"/>
+              <position x="1250" y="2510"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="251">
-                  <position x="1250" y="2160"/>
-                  <position x="1201" y="2160"/>
+                  <position x="1250" y="2530"/>
+                  <position x="1201" y="2530"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <contact localId="259" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="1080" y="2200"/>
+              <position x="1080" y="2570"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="253">
-                  <position x="1080" y="2210"/>
-                  <position x="1050" y="2210"/>
-                  <position x="1050" y="2160"/>
-                  <position x="1020" y="2160"/>
+                  <position x="1080" y="2580"/>
+                  <position x="1050" y="2580"/>
+                  <position x="1050" y="2530"/>
+                  <position x="1020" y="2530"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4215,18 +4235,18 @@
               <variable>B_Crossing_A</variable>
             </contact>
             <coil localId="255" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="1170" y="2280"/>
+              <position x="1170" y="2650"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="256">
-                  <position x="1170" y="2290"/>
-                  <position x="1091" y="2290"/>
+                  <position x="1170" y="2660"/>
+                  <position x="1091" y="2660"/>
                 </connection>
                 <connection refLocalId="260">
-                  <position x="1170" y="2290"/>
-                  <position x="1130" y="2290"/>
-                  <position x="1130" y="2340"/>
-                  <position x="1091" y="2340"/>
+                  <position x="1170" y="2660"/>
+                  <position x="1130" y="2660"/>
+                  <position x="1130" y="2710"/>
+                  <position x="1091" y="2710"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4235,12 +4255,12 @@
               <variable>Stop_B</variable>
             </coil>
             <contact localId="256" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="1070" y="2280"/>
+              <position x="1070" y="2650"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="257">
-                  <position x="1070" y="2290"/>
-                  <position x="1010" y="2290"/>
+                  <position x="1070" y="2660"/>
+                  <position x="1010" y="2660"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4249,30 +4269,30 @@
               <variable>A_Crossing_B</variable>
             </contact>
             <leftPowerRail localId="257" width="10" height="40" executionOrderId="0">
-              <position x="1000" y="2270"/>
+              <position x="1000" y="2640"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
             </leftPowerRail>
             <rightPowerRail localId="258" width="10" height="40" executionOrderId="0">
-              <position x="1240" y="2270"/>
+              <position x="1240" y="2640"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="255">
-                  <position x="1240" y="2290"/>
-                  <position x="1191" y="2290"/>
+                  <position x="1240" y="2660"/>
+                  <position x="1191" y="2660"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <contact localId="260" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="1070" y="2330"/>
+              <position x="1070" y="2700"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="257">
-                  <position x="1070" y="2340"/>
-                  <position x="1040" y="2340"/>
-                  <position x="1040" y="2290"/>
-                  <position x="1010" y="2290"/>
+                  <position x="1070" y="2710"/>
+                  <position x="1040" y="2710"/>
+                  <position x="1040" y="2660"/>
+                  <position x="1010" y="2660"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4281,7 +4301,7 @@
               <variable>B_Crossing_B</variable>
             </contact>
             <leftPowerRail localId="261" width="10" height="80">
-              <position x="50" y="2430"/>
+              <position x="50" y="2800"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
@@ -4290,12 +4310,12 @@
               </connectionPointOut>
             </leftPowerRail>
             <contact localId="262" negated="false" width="21" height="20">
-              <position x="140" y="2440"/>
+              <position x="140" y="2810"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="261">
-                  <position x="140" y="2450"/>
-                  <position x="60" y="2450"/>
+                  <position x="140" y="2820"/>
+                  <position x="60" y="2820"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4304,18 +4324,18 @@
               <variable>Crossing_A_Latch</variable>
             </contact>
             <coil localId="263" negated="false" width="21" height="20">
-              <position x="650" y="2440"/>
+              <position x="650" y="2810"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="277">
-                  <position x="650" y="2450"/>
-                  <position x="560" y="2450"/>
-                  <position x="560" y="2490"/>
-                  <position x="160" y="2490"/>
+                  <position x="650" y="2820"/>
+                  <position x="560" y="2820"/>
+                  <position x="560" y="2860"/>
+                  <position x="161" y="2860"/>
                 </connection>
                 <connection refLocalId="265">
-                  <position x="650" y="2450"/>
-                  <position x="501" y="2450"/>
+                  <position x="650" y="2820"/>
+                  <position x="501" y="2820"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4324,22 +4344,22 @@
               <variable>Crossing_A_Latch</variable>
             </coil>
             <rightPowerRail localId="266" width="10" height="40">
-              <position x="750" y="2430"/>
+              <position x="750" y="2800"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="263">
-                  <position x="750" y="2450"/>
-                  <position x="671" y="2450"/>
+                  <position x="750" y="2820"/>
+                  <position x="671" y="2820"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <contact localId="273" negated="true" width="21" height="20">
-              <position x="310" y="2440"/>
+              <position x="310" y="2810"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="262">
-                  <position x="310" y="2450"/>
-                  <position x="161" y="2450"/>
+                  <position x="310" y="2820"/>
+                  <position x="161" y="2820"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4348,12 +4368,12 @@
               <variable>A_Crossing_A_Amber</variable>
             </contact>
             <contact localId="265" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="480" y="2440"/>
+              <position x="480" y="2810"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="273">
-                  <position x="480" y="2450"/>
-                  <position x="331" y="2450"/>
+                  <position x="480" y="2820"/>
+                  <position x="331" y="2820"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4362,12 +4382,12 @@
               <variable>B_Crossing_A_Amber</variable>
             </contact>
             <contact localId="277" negated="false" width="21" height="20">
-              <position x="140" y="2480"/>
+              <position x="140" y="2850"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="261">
-                  <position x="140" y="2490"/>
-                  <position x="60" y="2490"/>
+                  <position x="140" y="2860"/>
+                  <position x="60" y="2860"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4376,7 +4396,7 @@
               <variable>Cross_A</variable>
             </contact>
             <leftPowerRail localId="264" width="10" height="80" executionOrderId="0">
-              <position x="50" y="2550"/>
+              <position x="50" y="2920"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
@@ -4385,12 +4405,12 @@
               </connectionPointOut>
             </leftPowerRail>
             <contact localId="267" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="140" y="2560"/>
+              <position x="140" y="2930"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="264">
-                  <position x="140" y="2570"/>
-                  <position x="60" y="2570"/>
+                  <position x="140" y="2940"/>
+                  <position x="60" y="2940"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4399,18 +4419,18 @@
               <variable>Crossing_B_Latch</variable>
             </contact>
             <coil localId="268" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="650" y="2560"/>
+              <position x="650" y="2930"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="272">
-                  <position x="650" y="2570"/>
-                  <position x="560" y="2570"/>
-                  <position x="560" y="2610"/>
-                  <position x="161" y="2610"/>
+                  <position x="650" y="2940"/>
+                  <position x="560" y="2940"/>
+                  <position x="560" y="2980"/>
+                  <position x="161" y="2980"/>
                 </connection>
                 <connection refLocalId="271">
-                  <position x="650" y="2570"/>
-                  <position x="501" y="2570"/>
+                  <position x="650" y="2940"/>
+                  <position x="501" y="2940"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4419,22 +4439,22 @@
               <variable>Crossing_B_Latch</variable>
             </coil>
             <rightPowerRail localId="269" width="10" height="40" executionOrderId="0">
-              <position x="750" y="2550"/>
+              <position x="750" y="2920"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="268">
-                  <position x="750" y="2570"/>
-                  <position x="671" y="2570"/>
+                  <position x="750" y="2940"/>
+                  <position x="671" y="2940"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <contact localId="270" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="310" y="2560"/>
+              <position x="310" y="2930"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="267">
-                  <position x="310" y="2570"/>
-                  <position x="161" y="2570"/>
+                  <position x="310" y="2940"/>
+                  <position x="161" y="2940"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4443,12 +4463,12 @@
               <variable>B_Crossing_A_Amber</variable>
             </contact>
             <contact localId="271" negated="true" width="21" height="20" executionOrderId="0">
-              <position x="480" y="2560"/>
+              <position x="480" y="2930"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="270">
-                  <position x="480" y="2570"/>
-                  <position x="331" y="2570"/>
+                  <position x="480" y="2940"/>
+                  <position x="331" y="2940"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4457,12 +4477,12 @@
               <variable>B_Crossing_B_Amber</variable>
             </contact>
             <contact localId="272" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="140" y="2600"/>
+              <position x="140" y="2970"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="264">
-                  <position x="140" y="2610"/>
-                  <position x="60" y="2610"/>
+                  <position x="140" y="2980"/>
+                  <position x="60" y="2980"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -4470,6 +4490,192 @@
               </connectionPointOut>
               <variable>Cross_B</variable>
             </contact>
+            <block localId="278" typeName="TON" instanceName="TON9" width="50" height="60">
+              <position x="350" y="1000"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="203">
+                      <position x="350" y="1030"/>
+                      <position x="310" y="1030"/>
+                      <position x="310" y="1000"/>
+                      <position x="271" y="1000"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="PT">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="279">
+                      <position x="350" y="1050"/>
+                      <position x="320" y="1050"/>
+                      <position x="320" y="1060"/>
+                      <position x="290" y="1060"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="Q">
+                  <connectionPointOut>
+                    <relPosition x="50" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="ET">
+                  <connectionPointOut>
+                    <relPosition x="50" y="50"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="279" width="120" height="30" negated="false">
+              <position x="170" y="1040"/>
+              <connectionPointOut>
+                <relPosition x="120" y="20"/>
+              </connectionPointOut>
+              <expression>Traffic_Dwell</expression>
+            </inVariable>
+            <inVariable localId="274" width="120" height="30" negated="false" executionOrderId="0">
+              <position x="170" y="1210"/>
+              <connectionPointOut>
+                <relPosition x="120" y="20"/>
+              </connectionPointOut>
+              <expression>Traffic_Dwell</expression>
+            </inVariable>
+            <block localId="275" typeName="TON" instanceName="TON10" width="50" height="60" executionOrderId="0">
+              <position x="350" y="1170"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="200">
+                      <position x="350" y="1200"/>
+                      <position x="310" y="1200"/>
+                      <position x="310" y="1180"/>
+                      <position x="271" y="1180"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="PT">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="274">
+                      <position x="350" y="1220"/>
+                      <position x="320" y="1220"/>
+                      <position x="320" y="1230"/>
+                      <position x="290" y="1230"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="Q">
+                  <connectionPointOut>
+                    <relPosition x="50" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="ET">
+                  <connectionPointOut>
+                    <relPosition x="50" y="50"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="276" width="120" height="30" negated="false" executionOrderId="0">
+              <position x="190" y="1380"/>
+              <connectionPointOut>
+                <relPosition x="120" y="10"/>
+              </connectionPointOut>
+              <expression>Traffic_Dwell</expression>
+            </inVariable>
+            <block localId="280" typeName="TON" instanceName="TON11" width="50" height="60" executionOrderId="0">
+              <position x="370" y="1340"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="205">
+                      <position x="370" y="1370"/>
+                      <position x="320" y="1370"/>
+                      <position x="320" y="1340"/>
+                      <position x="271" y="1340"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="PT">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="276">
+                      <position x="370" y="1390"/>
+                      <position x="310" y="1390"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="Q">
+                  <connectionPointOut>
+                    <relPosition x="50" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="ET">
+                  <connectionPointOut>
+                    <relPosition x="50" y="50"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <inVariable localId="281" width="120" height="30" negated="false" executionOrderId="0">
+              <position x="170" y="1530"/>
+              <connectionPointOut>
+                <relPosition x="120" y="20"/>
+              </connectionPointOut>
+              <expression>Traffic_Dwell</expression>
+            </inVariable>
+            <block localId="282" typeName="TON" instanceName="TON12" width="50" height="60" executionOrderId="0">
+              <position x="350" y="1490"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="207">
+                      <position x="350" y="1520"/>
+                      <position x="310" y="1520"/>
+                      <position x="310" y="1510"/>
+                      <position x="271" y="1510"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="PT">
+                  <connectionPointIn>
+                    <relPosition x="0" y="50"/>
+                    <connection refLocalId="281">
+                      <position x="350" y="1540"/>
+                      <position x="320" y="1540"/>
+                      <position x="320" y="1550"/>
+                      <position x="290" y="1550"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="Q">
+                  <connectionPointOut>
+                    <relPosition x="50" y="30"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="ET">
+                  <connectionPointOut>
+                    <relPosition x="50" y="50"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
           </LD>
         </body>
       </pou>
