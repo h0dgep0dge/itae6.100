@@ -1,0 +1,35 @@
+@startuml Traffic lights
+
+[*] --> Traffic_A
+
+Traffic_A --> AtoB_Amber : Change button pressed
+Traffic_A --> A_Crossing_A_Amber : A latch is latched and 3 seconds has passed
+Traffic_A --> A_Crossing_B_Amber : B latch is latched and 3 seconds has passed
+
+Traffic_B --> BtoA_Amber : After 5 seconds
+Traffic_B --> B_Crossing_A_Amber : A latch is latched and 3 seconds has passed
+Traffic_B --> B_Crossing_B_Amber : B latch is latched and 3 seconds has passed
+
+AtoB_Amber --> Traffic_B : After 2 seconds
+
+BtoA_Amber --> Traffic_A : After 2 seconds
+
+A_Crossing_A_Amber --> A_Crossing_A : After 2 seconds
+A_Crossing_A --> Traffic_A : After 3 seconds
+
+A_Crossing_B_Amber --> A_Crossing_B : After 2 seconds
+A_Crossing_B --> Traffic_A : After 3 seconds
+
+B_Crossing_A_Amber --> B_Crossing_A : After 2 seconds
+B_Crossing_A --> Traffic_B : After 3 seconds
+
+B_Crossing_B_Amber --> B_Crossing_B : After 2 seconds
+B_Crossing_B --> Traffic_B : After 3 seconds
+
+A_Crossing_Latched --> A_Crossing_Unlatched : Main machine in A_Crossing_A or B_Crossing_A states
+A_Crossing_Unlatched --> A_Crossing_Latched : Crossing A pressed
+
+B_Crossing_Latched --> B_Crossing_Unlatched : Main machine in A_Crossing_B or B_Crossing_B states
+B_Crossing_Unlatched --> B_Crossing_Latched : Crossing B pressed
+
+@enduml
