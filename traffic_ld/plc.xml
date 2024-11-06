@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2024-11-03T12:34:03"/>
-  <contentHeader name="Unnamed" modificationDateTime="2024-11-06T21:45:40">
+  <contentHeader name="Unnamed" modificationDateTime="2024-11-06T21:58:04">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -4460,7 +4460,7 @@
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>B_Crossing_A_Amber</variable>
+              <variable>A_Crossing_B_Amber</variable>
             </contact>
             <contact localId="271" negated="true" width="21" height="20" executionOrderId="0">
               <position x="480" y="2930"/>
